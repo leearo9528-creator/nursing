@@ -103,7 +103,7 @@ const SLIDES = [
       '가장 먼저 환자를 만나는 사람',
       '소방 공무원 신분, 응급구조사와 협력',
     ],
-    img:'https://images.unsplash.com/photo-1543333995-3f5e3ef16b6c?auto=format&fit=crop&w=900&q=80'
+    img:'https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&w=900&q=80'
   },
 
   { type:'theory', period:1, tag:'항공 간호', color:'#F97316',
