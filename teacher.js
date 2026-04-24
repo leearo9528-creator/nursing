@@ -62,7 +62,7 @@ const SLIDES = [
       '빠른 판단력과 강인한 체력이 필수',
       '24시간 교대 근무, 환자 초기 평가·안정화 담당',
     ],
-    img:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80'
+    img:'https://images.unsplash.com/photo-1587351021759-3772687fe598?auto=format&fit=crop&w=900&q=80'
   },
 
   { type:'theory', period:1, tag:'중환자실', color:'#0891B2',
