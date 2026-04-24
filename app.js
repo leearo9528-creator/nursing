@@ -123,43 +123,50 @@ const APTITUDE_Q = [
 ];
 
 const APTITUDE_TYPES = {
-  ER:        { title:"ER FIGHTER",        label:"응급실형",    color:"#E63946", icon:"🚨", desc:"위기 속에서 빛나는 당신! 빠른 판단력과 강인한 체력이 무기입니다. 응급실의 혼돈 속에서도 침착하게 생명을 지켜냅니다.", tips:["매일 10분 CPR 연습 영상 시청하기","응급처치 1급 자격증 준비하기","지역 병원 응급실 체험 봉사 신청하기"] },
-  ICU:       { title:"ICU GUARDIAN",      label:"중환자실형",  color:"#22D3D7", icon:"🛡️", desc:"환자 곁에서 24시간 지키는 수호자! 집중력과 꼼꼼함으로 위중한 환자의 회복을 돕습니다.", tips:["생리학·해부학 기초 공부 시작하기","의학 다큐멘터리 시청하기","의료 봉사 활동에 참여하기"] },
-  OR:        { title:"OR PERFECTIONIST",  label:"수술실형",    color:"#A78BFA", icon:"⚕️", desc:"완벽을 추구하는 정밀 전문가! 수술실의 한 치 오차도 용납하지 않는 정확성이 강점입니다.", tips:["손 기술 취미 찾기 (뜨개질·종이접기)","의학 용어 50개 외우기","수술 관련 의학 유튜브 구독하기"] },
-  COMMUNITY: { title:"COMMUNITY HEALER",  label:"보건교사형",  color:"#4ADE80", icon:"🌿", desc:"지역사회를 치유하는 교육자! 건강 지식을 전달하고 예방에 힘씁니다. 학교에서 빛나는 유형입니다.", tips:["보건 관련 책 읽기","학교 보건실 선생님께 진로 여쭤보기","건강 관련 UCC·발표 자료 만들어보기"] },
-  SCIENCE:   { title:"SCIENCE MIND",      label:"연구형",      color:"#F4B942", icon:"🔬", desc:"지식으로 의학을 발전시키는 탐구자! 데이터와 연구를 통해 더 나은 의료를 만들어갑니다.", tips:["과학 실험 동아리 가입하기","청소년용 의학 도서 읽기","데이터 분석 기초(엑셀·통계) 배우기"] },
+  ER:        { title:"ER FIGHTER",       label:"응급실형",   color:"#E63946", icon:"🚨", desc:"위기 속에서 빛나는 당신! 빠른 판단력과 강인한 체력이 무기입니다.", tips:["매일 10분 CPR 연습 영상 시청하기","응급처치 1급 자격증 준비하기","지역 병원 응급실 체험 봉사 신청하기"] },
+  ICU:       { title:"ICU GUARDIAN",     label:"중환자실형", color:"#0891B2", icon:"🛡️", desc:"환자 곁에서 24시간 지키는 수호자! 집중력과 꼼꼼함으로 위중한 환자의 회복을 돕습니다.", tips:["생리학·해부학 기초 공부 시작하기","의학 다큐멘터리 시청하기","의료 봉사 활동에 참여하기"] },
+  OR:        { title:"OR PERFECTIONIST", label:"수술실형",   color:"#7C3AED", icon:"⚕️", desc:"완벽을 추구하는 정밀 전문가! 수술실의 한 치 오차도 용납하지 않는 정확성이 강점입니다.", tips:["손 기술 취미 찾기 (뜨개질·종이접기)","의학 용어 50개 외우기","수술 관련 의학 유튜브 구독하기"] },
+  COMMUNITY: { title:"COMMUNITY HEALER", label:"보건교사형", color:"#16A34A", icon:"🌿", desc:"지역사회를 치유하는 교육자! 건강 지식을 전달하고 예방에 힘씁니다.", tips:["보건 관련 책 읽기","학교 보건실 선생님께 진로 여쭤보기","건강 관련 UCC·발표 자료 만들어보기"] },
+  SCIENCE:   { title:"SCIENCE MIND",     label:"연구형",     color:"#D97706", icon:"🔬", desc:"지식으로 의학을 발전시키는 탐구자! 데이터와 연구를 통해 더 나은 의료를 만들어갑니다.", tips:["과학 실험 동아리 가입하기","청소년용 의학 도서 읽기","데이터 분석 기초(엑셀·통계) 배우기"] },
 };
 
 const QA_LIST = [
-  { q:"간호사 연봉은 얼마나 되나요?", a:"신규 간호사는 연 3,000~3,500만 원 수준입니다. 경력 5년 이상이면 4,000~5,000만 원, 수간호사·파트장은 6,000만 원 이상도 가능합니다. 미국·캐나다 등 해외 취업 시 연 1억 원 이상도 현실입니다." },
+  { q:"간호사 연봉은 얼마나 되나요?", a:"신규 간호사는 연 3,000~3,500만 원 수준입니다. 경력 5년 이상이면 4,000~5,000만 원, 수간호사는 6,000만 원 이상도 가능합니다. 미국·캐나다 등 해외 취업 시 연 1억 원 이상도 현실입니다." },
   { q:"남자도 간호사가 될 수 있나요?", a:"물론입니다! 국내 남성 간호사는 약 3만 명으로 빠르게 늘고 있습니다. 응급실·중환자실·군 병원에서 특히 많이 활약하며, 군 간호장교 과정도 있습니다." },
   { q:"피를 보면 무서운데 간호사를 해도 될까요?", a:"대부분의 간호사가 처음엔 비슷하게 느낍니다! 실습을 거듭하면서 자연스럽게 익숙해집니다. 피를 보지 않는 분야(보건교사, 연구간호사, 행정간호사)도 많으니 걱정 마세요." },
   { q:"간호사가 되려면 공부를 얼마나 해야 하나요?", a:"간호학과 4년 + 국가고시 준비입니다. 해부학·생리학·약리학 등 어려운 과목이 많습니다. 하지만 졸업 후 거의 바로 취업이 되는 몇 안 되는 전공 중 하나입니다!" },
-  { q:"간호사와 의사는 사이가 안 좋나요?", a:"드라마와 달리 실제 병원에서는 팀워크가 생명입니다. 의사는 진단·처방, 간호사는 처치·관찰·교육을 담당하며 서로를 전문가로 존중합니다. 협업이 기본입니다." },
-  { q:"야간 근무는 정말 힘든가요?", a:"솔직히 힘듭니다! 병원 간호사는 낮-저녁-밤 3교대를 합니다. 그러나 야간 수당이 높고, 낮에 개인 시간을 쓸 수 있다는 장점도 있습니다. 경력이 쌓이면 전담직(낮만 근무)으로 바꿀 수도 있어요." },
-  { q:"담당 환자가 사망하면 어떻게 되나요?", a:"간호사도 사람이기에 많이 슬픕니다. 처음엔 감당하기 어렵기도 합니다. 대부분의 병원에 심리 지원 프로그램이 있고, 동료들끼리 서로 돕습니다. 시간이 지나면서 생명의 소중함을 더 깊이 이해하게 됩니다." },
-  { q:"결혼 후에도 계속 일할 수 있나요?", a:"네! 간호사 면허는 평생 유지됩니다. 출산 후 육아휴직을 쓰고 복귀하거나, 파트타임·클리닉 근무로 전환하는 분들도 많습니다. 의료 분야는 경력 단절이 적은 편입니다." },
-  { q:"주사를 실수로 잘못 놓으면 어떻게 되나요?", a:"그래서 간호사는 '5 RIGHT' 원칙(올바른 환자·약·용량·경로·시간)을 철저히 지킵니다. 실수가 발생하면 즉시 보고하고 팀이 함께 대응합니다. 숨기는 것이 더 위험합니다." },
+  { q:"간호사와 의사는 사이가 안 좋나요?", a:"드라마와 달리 실제 병원에서는 팀워크가 생명입니다. 의사는 진단·처방, 간호사는 처치·관찰·교육을 담당하며 서로를 전문가로 존중합니다." },
+  { q:"야간 근무는 정말 힘든가요?", a:"솔직히 힘듭니다! 병원 간호사는 낮-저녁-밤 3교대를 합니다. 그러나 야간 수당이 높고, 낮에 개인 시간을 쓸 수 있다는 장점도 있습니다." },
+  { q:"담당 환자가 사망하면 어떻게 되나요?", a:"간호사도 사람이기에 많이 슬픕니다. 대부분의 병원에 심리 지원 프로그램이 있고, 동료들끼리 서로 돕습니다. 시간이 지나면서 생명의 소중함을 더 깊이 이해하게 됩니다." },
+  { q:"결혼 후에도 계속 일할 수 있나요?", a:"네! 간호사 면허는 평생 유지됩니다. 출산 후 육아휴직을 쓰고 복귀하거나, 파트타임·클리닉 근무로 전환하는 분들도 많습니다." },
+  { q:"주사를 실수로 잘못 놓으면 어떻게 되나요?", a:"그래서 간호사는 '5 RIGHT' 원칙(올바른 환자·약·용량·경로·시간)을 철저히 지킵니다. 실수가 발생하면 즉시 보고하고 팀이 함께 대응합니다." },
   { q:"간호사 말고 비슷한 의료 직업에는 어떤 것이 있나요?", a:"임상병리사(검사), 방사선사(X-ray), 물리치료사(재활), 작업치료사, 의무기록사, 응급구조사 등이 있습니다. 간호사와 협력하는 직종이므로 함께 알아보면 좋습니다!" },
 ];
 
 const RANKS = [
-  { min:300, icon:"🦸", title:"NURSE-AVENGER", sub:"생명의 수호자",  color:"#F4B942" },
-  { min:220, icon:"💉", title:"SPECIALIST",    sub:"베테랑 간호사", color:"#22D3D7" },
-  { min:140, icon:"🩺", title:"TRAINEE",       sub:"실습 간호사",   color:"#A78BFA" },
-  { min:0,   icon:"🩹", title:"ROOKIE",        sub:"견습생",         color:"#8899AA" },
+  { min:300, icon:"🦸", title:"NURSE-AVENGER", sub:"생명의 수호자",  color:"#D97706" },
+  { min:220, icon:"💉", title:"SPECIALIST",    sub:"베테랑 간호사", color:"#0891B2" },
+  { min:140, icon:"🩺", title:"TRAINEE",       sub:"실습 간호사",   color:"#7C3AED" },
+  { min:0,   icon:"🩹", title:"ROOKIE",        sub:"견습생",         color:"#64748B" },
 ];
 
 const TRIAGE_COLORS = {
-  RED:    { bg:"#E63946", label:"RED — 즉시",   desc:"즉시 처치" },
-  YELLOW: { bg:"#F4B942", label:"YELLOW — 긴급", desc:"30분 내 처치" },
-  GREEN:  { bg:"#4ADE80", label:"GREEN — 비응급", desc:"대기 후 처치" },
-  BLACK:  { bg:"#374151", label:"BLACK — 지연",  desc:"소생 불가" },
+  RED:    { bg:"#E63946", label:"RED",    desc:"즉시 처치" },
+  YELLOW: { bg:"#D97706", label:"YELLOW", desc:"30분 내 처치" },
+  GREEN:  { bg:"#16A34A", label:"GREEN",  desc:"대기 후 처치" },
+  BLACK:  { bg:"#374151", label:"BLACK",  desc:"소생 불가" },
 };
+
+const TABS = [
+  { id:"ox",  icon:"🎯", label:"OX퀴즈" },
+  { id:"sit", icon:"🎭", label:"상황극" },
+  { id:"tri", icon:"🚑", label:"트리아지" },
+  { id:"apt", icon:"🧭", label:"적성테스트" },
+];
 
 // ==================== STATE ====================
 
-const STORAGE_KEY = 'nurse_avengers_v1';
+const STORAGE_KEY = 'nurse_avengers_v2';
 
 let S = null;
 
@@ -174,9 +181,10 @@ function saveState() {
 function initState(name) {
   S = {
     name,
-    screen: 'p1_s1',
+    screen: 'ox',
     score: 0,
-    ox:  { idx:0, answered:null, streak:0, done:false, totalBonus:0 },
+    oxPts: 0, sitPts: 0, triPts: 0,
+    ox:  { idx:0, answered:null, streak:0, done:false },
     sit: { idx:0, answered:null, done:false },
     tri: { idx:0, answered:null, done:false },
     apt: { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0,SCIENCE:0}, result:null, done:false },
@@ -187,10 +195,6 @@ function initState(name) {
 
 function goTo(screen) {
   S.screen = screen;
-  if (screen === 'p1_s3') S.ox  = { idx:0, answered:null, streak:0, done:false, totalBonus:0 };
-  if (screen === 'p1_s4') S.sit = { idx:0, answered:null, done:false };
-  if (screen === 'p2_s2') S.tri = { idx:0, answered:null, done:false };
-  if (screen === 'p2_s3') S.apt = { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0,SCIENCE:0}, result:null, done:false };
   saveState();
   render();
 }
@@ -199,26 +203,80 @@ function getRank() {
   return RANKS.find(r => S.score >= r.min) || RANKS[RANKS.length - 1];
 }
 
-// ==================== HELPERS ====================
-
-function stepBadge(period, step, total) {
-  return `<div class="step-badge"><span class="mono">${period}교시 · STEP ${step} / ${total}</span></div>`;
-}
-
-function scoreBadge() {
-  return `<div class="score-badge"><span class="mono">${S.score} PT</span></div>`;
-}
-
-function topBar(period, step, total) {
-  return `<div class="top-bar">${stepBadge(period, step, total)}${scoreBadge()}</div>`;
-}
-
-function btn(label, onclick, cls='') {
-  return `<button class="btn ${cls}" onclick="${onclick}">${label}</button>`;
-}
-
 function esc(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ==================== LAYOUT WRAPPERS ====================
+
+function oxProgress() {
+  if (S.ox.done) return '✓';
+  if (S.ox.idx === 0 && S.ox.answered === null) return '';
+  return `${S.ox.idx}/${OX_QUIZ.length}`;
+}
+function sitProgress() {
+  if (S.sit.done) return '✓';
+  if (S.sit.idx === 0 && S.sit.answered === null) return '';
+  return `${S.sit.idx}/${SITUATIONS.length}`;
+}
+function triProgress() {
+  if (S.tri.done) return '✓';
+  if (S.tri.idx === 0 && S.tri.answered === null) return '';
+  return `${S.tri.idx}/${TRIAGE.length}`;
+}
+function aptProgress() {
+  if (S.apt.done && S.apt.result) return APTITUDE_TYPES[S.apt.result].icon;
+  if (S.apt.idx === 0 && S.apt.answered === null) return '';
+  return `${S.apt.idx}/${APTITUDE_Q.length}`;
+}
+
+function topNav() {
+  const progs = { ox: oxProgress(), sit: sitProgress(), tri: triProgress(), apt: aptProgress() };
+  const isDone = { ox: S.ox.done, sit: S.sit.done, tri: S.tri.done, apt: S.apt.done };
+  return `
+  <nav class="top-nav">
+    ${TABS.map(t => `
+      <button class="nav-tab ${S.screen === t.id ? 'active' : ''} ${isDone[t.id] ? 'done' : ''}"
+              onclick="goTo('${t.id}')">
+        <span class="nav-icon">${t.icon}</span>
+        <span class="nav-label">${t.label}</span>
+        ${progs[t.id] ? `<span class="nav-prog">${progs[t.id]}</span>` : ''}
+      </button>`).join('')}
+  </nav>`;
+}
+
+function bottomBar() {
+  const rank = getRank();
+  return `
+  <div class="bottom-bar">
+    <div class="score-chips">
+      <div class="score-chip ${S.oxPts > 0 ? 'chip-active' : ''}">
+        <span class="chip-label">OX</span>
+        <span class="chip-val">${S.oxPts}pt</span>
+      </div>
+      <div class="score-chip ${S.sitPts > 0 ? 'chip-active' : ''}">
+        <span class="chip-label">상황극</span>
+        <span class="chip-val">${S.sitPts}pt</span>
+      </div>
+      <div class="score-chip ${S.triPts > 0 ? 'chip-active' : ''}">
+        <span class="chip-label">트리아지</span>
+        <span class="chip-val">${S.triPts}pt</span>
+      </div>
+    </div>
+    <div class="score-total">
+      <span class="score-total-rank" style="color:${rank.color}">${rank.icon}</span>
+      <span class="score-total-val mono">${S.score}pt</span>
+    </div>
+  </div>`;
+}
+
+function wrapMain(content) {
+  return `
+  <div class="app-layout">
+    ${topNav()}
+    <div class="content-area">${content}</div>
+    ${bottomBar()}
+  </div>`;
 }
 
 // ==================== SCREENS ====================
@@ -228,7 +286,7 @@ function renderWelcome() {
   const resumeHtml = saved && saved.name ? `
     <div class="resume-card">
       <div class="resume-label">이전 기록이 있습니다</div>
-      <div class="resume-name">${esc(saved.name)} · ${saved.score} PT</div>
+      <div class="resume-name">${esc(saved.name)} · ${saved.score}pt</div>
       <button class="btn btn-secondary" onclick="resumeSession()">이어서 진행하기</button>
     </div>` : '';
 
@@ -243,102 +301,26 @@ function renderWelcome() {
       ${resumeHtml}
       <div class="form-label">이름을 입력하세요</div>
       <input id="nameInput" class="name-input" type="text" placeholder="홍길동" maxlength="10" autocomplete="off">
-      <button class="btn btn-coral" onclick="startNew()">새로 시작하기 →</button>
+      <button class="btn btn-coral" onclick="startNew()">시작하기 →</button>
     </div>
   </div>`;
 }
 
-function renderP1S1() {
-  const workplaces = [
-    { icon:"🚨", name:"응급실 (ER)", desc:"외상·뇌졸중 등 즉각 대응. 빠른 판단력이 생명입니다.", color:"#E63946" },
-    { icon:"🔴", name:"중환자실 (ICU)", desc:"24시간 집중 모니터링. 가장 위중한 환자를 케어합니다.", color:"#22D3D7" },
-    { icon:"⚕️", name:"수술실 (OR)", desc:"집도의의 파트너. 수술 전·중·후 전 과정을 담당합니다.", color:"#A78BFA" },
-    { icon:"🏫", name:"보건교사", desc:"학교 보건실에서 학생의 건강을 지키는 교육형 간호사입니다.", color:"#4ADE80" },
-    { icon:"🚒", name:"소방 구급대", desc:"119 구급차에서 응급처치를 담당하는 현장 간호사입니다.", color:"#F4B942" },
-    { icon:"✈️", name:"항공 간호사", desc:"닥터헬기·의료 전용기에서 중증 환자를 이송·치료합니다.", color:"#F97316" },
-  ];
-  const cards = workplaces.map(w => `
-    <div class="wp-card" style="border-left:3px solid ${w.color}">
-      <div class="wp-icon">${w.icon}</div>
-      <div class="wp-info">
-        <div class="wp-name">${w.name}</div>
-        <div class="wp-desc">${w.desc}</div>
-      </div>
-    </div>`).join('');
-
-  return `
-  <div class="screen">
-    ${topBar(1,1,4)}
-    <div class="screen-inner">
-      <div class="section-title">간호사의<br>다양한 근무지</div>
-      <p class="section-sub">간호사는 병원만이 아닙니다. 6가지 대표 근무지를 알아봅니다.</p>
-      <div class="wp-list">${cards}</div>
-      ${btn('다음 단계로 →', "goTo('p1_s2')", 'btn-coral btn-full')}
-    </div>
-  </div>`;
-}
-
-function renderP1S2() {
-  const steps = [
-    { num:"01", title:"중학교·고등학교", desc:"이과 계열 과목(생물·화학) 집중. 내신 관리가 핵심입니다." },
-    { num:"02", title:"간호학과 입학", desc:"4년제 간호학과 또는 3년제 간호전문대 진학." },
-    { num:"03", title:"임상 실습", desc:"병원에서 직접 실습. 가장 치열하고 성장하는 시간입니다." },
-    { num:"04", title:"국가고시 합격", desc:"연 1회, 합격률 약 90~95%. 취득 즉시 간호사 면허 발급!" },
-    { num:"05", title:"취업 & 전문화", desc:"병원 취업 후 전문간호사·연구·해외 진출 등 무한 확장." },
-  ];
-  const reality = [
-    "😰 4년간 밤샘 공부는 각오해야 합니다",
-    "💪 하지만 졸업 즉시 취업률이 매우 높습니다",
-    "🌏 영어 실력이 있으면 해외 취업도 가능합니다",
-    "🎓 전문간호사 자격증으로 연봉을 높일 수 있습니다",
-  ];
-
-  return `
-  <div class="screen">
-    ${topBar(1,2,4)}
-    <div class="screen-inner">
-      <div class="section-title">간호사 되는 길<br>5단계</div>
-      <div class="steps-list">
-        ${steps.map(s => `
-          <div class="step-row">
-            <div class="step-num mono">${s.num}</div>
-            <div class="step-info">
-              <div class="step-title">${s.title}</div>
-              <div class="step-desc">${s.desc}</div>
-            </div>
-          </div>`).join('')}
-      </div>
-      <div class="reality-box">
-        <div class="reality-title mono">REAL TALK</div>
-        ${reality.map(r => `<div class="reality-item">${r}</div>`).join('')}
-      </div>
-      ${btn('퀴즈 시작하기 →', "goTo('p1_s3')", 'btn-coral btn-full')}
-    </div>
-  </div>`;
-}
-
-function renderP1S3() {
+function renderOX() {
   const ox = S.ox;
 
   if (ox.done) {
-    const total = OX_QUIZ.length * 10;
-    const got   = S.score; // cumulative — just show ox portion via tracking
-    return `
-    <div class="screen">
-      ${topBar(1,3,4)}
+    return wrapMain(`
       <div class="screen-inner center">
         <div class="result-big">🎉</div>
         <div class="result-title">OX 퀴즈 완료!</div>
-        <div class="result-score mono">${S.score} PT</div>
-        <p class="result-sub">보너스 포함 총점입니다.<br>상황극으로 이동하세요.</p>
-        ${btn('다음 단계 →', "goTo('p1_s4')", 'btn-coral btn-full')}
-      </div>
-    </div>`;
+        <div class="result-score mono">${S.oxPts}pt 획득</div>
+        <p class="result-sub">총 ${OX_QUIZ.length}문제 중<br>정답을 맞춰서 얻은 점수입니다.</p>
+      </div>`);
   }
 
   const q = OX_QUIZ[ox.idx];
   const answered = ox.answered;
-
   let feedbackHtml = '';
   if (answered !== null) {
     const correct = answered === q.a;
@@ -351,58 +333,45 @@ function renderP1S3() {
       </div>`;
   }
 
-  return `
-  <div class="screen">
-    ${topBar(1,3,4)}
+  return wrapMain(`
     <div class="screen-inner">
       <div class="quiz-header">
-        <div class="quiz-progress mono">Q ${ox.idx + 1} / ${OX_QUIZ.length}</div>
-        ${ox.streak >= 2 ? `<div class="streak-badge mono">🔥 ${ox.streak}연속</div>` : ''}
+        <span class="quiz-progress mono">Q ${ox.idx + 1} / ${OX_QUIZ.length}</span>
+        ${ox.streak >= 2 ? `<span class="streak-badge">🔥 ${ox.streak}연속</span>` : ''}
       </div>
-      <div class="quiz-card">
-        <p class="quiz-q">${esc(q.q)}</p>
-      </div>
+      <div class="quiz-card"><p class="quiz-q">${esc(q.q)}</p></div>
       ${answered === null ? `
         <div class="ox-buttons">
           <button class="ox-btn ox-o" onclick="oxAnswer(true)">O</button>
           <button class="ox-btn ox-x" onclick="oxAnswer(false)">X</button>
         </div>` : feedbackHtml}
-    </div>
-  </div>`;
+    </div>`);
 }
 
-function renderP1S4() {
+function renderSit() {
   const sit = S.sit;
 
   if (sit.done) {
-    return `
-    <div class="screen">
-      ${topBar(1,4,4)}
+    return wrapMain(`
       <div class="screen-inner center">
         <div class="result-big">🎭</div>
         <div class="result-title">상황극 완료!</div>
-        <div class="result-score mono">${S.score} PT</div>
-        <p class="result-sub">1교시가 끝났습니다.<br>잠시 쉬어가세요!</p>
-        ${btn('쉬는 시간 →', "goTo('break')", 'btn-teal btn-full')}
-      </div>
-    </div>`;
+        <div class="result-score mono">${S.sitPts}pt 획득</div>
+        <p class="result-sub">4가지 장면에서의<br>공감 선택 점수입니다.</p>
+      </div>`);
   }
 
   const sc = SITUATIONS[sit.idx];
   const answered = sit.answered;
-
   let feedbackHtml = '';
   if (answered !== null) {
     const choice = sc.choices[answered];
-    const maxScore = 5;
-    const bar = Math.round((choice.score / maxScore) * 100);
+    const bar = Math.round((choice.score / 5) * 100);
     feedbackHtml = `
       <div class="feedback feedback-sit">
         <div class="empathy-label">공감 점수</div>
-        <div class="empathy-bar-wrap">
-          <div class="empathy-bar" style="width:${bar}%"></div>
-        </div>
-        <div class="empathy-score mono">+${choice.score * 2} PT</div>
+        <div class="empathy-bar-wrap"><div class="empathy-bar" style="width:${bar}%"></div></div>
+        <div class="empathy-score mono">+${choice.score * 2}pt</div>
         <div class="feedback-tip">${sc.bestTip}</div>
         <button class="btn btn-coral btn-full" onclick="sitNext()">
           ${sit.idx < SITUATIONS.length - 1 ? '다음 장면 →' : '결과 보기 →'}
@@ -410,12 +379,10 @@ function renderP1S4() {
       </div>`;
   }
 
-  return `
-  <div class="screen">
-    ${topBar(1,4,4)}
+  return wrapMain(`
     <div class="screen-inner">
       <div class="scene-header">
-        <span class="mono scene-badge">${sc.scene}</span>
+        <span class="scene-badge mono">${sc.scene}</span>
         <span class="scene-title">${sc.emoji} ${sc.title}</span>
       </div>
       <div class="scene-setup">${esc(sc.setup)}</div>
@@ -425,75 +392,24 @@ function renderP1S4() {
           ${sc.choices.map((c,i) => `
             <button class="choice-btn" onclick="sitAnswer(${i})">${esc(c.text)}</button>`).join('')}
         </div>` : feedbackHtml}
-    </div>
-  </div>`;
+    </div>`);
 }
 
-function renderBreak() {
-  return `
-  <div class="screen screen-break">
-    <div class="break-inner">
-      <div class="break-icon">☕</div>
-      <div class="break-title">쉬는 시간</div>
-      <div class="break-sub">잠시 스트레칭하세요.<br>2교시가 곧 시작됩니다.</div>
-      <div class="break-score">
-        <div class="mono break-score-label">현재 점수</div>
-        <div class="mono break-score-val">${S.score} PT</div>
-      </div>
-      ${btn('2교시 시작 →', "goTo('p2_s1')", 'btn-teal btn-full')}
-    </div>
-  </div>`;
-}
-
-function renderP2S1() {
-  const colors = [
-    { c:"RED",    bg:"#E63946", label:"RED — 즉시",    desc:"생명 위협. 즉각 처치하지 않으면 사망 위험." },
-    { c:"YELLOW", bg:"#F4B942", label:"YELLOW — 긴급",  desc:"심각하지만 30분 내 처치 가능. 대기 가능." },
-    { c:"GREEN",  bg:"#4ADE80", label:"GREEN — 비응급", desc:"경상. 순서를 기다려도 생명에 지장 없음." },
-    { c:"BLACK",  bg:"#374151", label:"BLACK — 지연",   desc:"소생 불가능. 제한된 자원 하 처치 불가." },
-  ];
-
-  return `
-  <div class="screen">
-    ${topBar(2,1,4)}
-    <div class="screen-inner">
-      <div class="section-title">트리아지<br>(Triage)</div>
-      <p class="section-sub">대규모 재난 현장에서 한정된 의료 자원으로 최대한 많은 생명을 살리기 위한 <b>환자 분류 시스템</b>입니다.</p>
-      <div class="triage-cards">
-        ${colors.map(t => `
-          <div class="triage-card" style="background:${t.bg}20;border:1px solid ${t.bg}">
-            <div class="triage-card-label" style="color:${t.bg}">${t.label}</div>
-            <div class="triage-card-desc">${t.desc}</div>
-          </div>`).join('')}
-      </div>
-      <div class="info-box">
-        <span class="mono info-tag">POINT</span>
-        간호사의 판단 하나가 생사를 가릅니다. 완벽한 치료보다 <b>최대 다수의 생존</b>이 목표입니다.
-      </div>
-      ${btn('트리아지 게임 시작 →', "goTo('p2_s2')", 'btn-coral btn-full')}
-    </div>
-  </div>`;
-}
-
-function renderP2S2() {
+function renderTri() {
   const tri = S.tri;
 
   if (tri.done) {
-    return `
-    <div class="screen">
-      ${topBar(2,2,4)}
+    return wrapMain(`
       <div class="screen-inner center">
         <div class="result-big">🏥</div>
         <div class="result-title">트리아지 완료!</div>
-        <div class="result-score mono">${S.score} PT</div>
-        ${btn('적성 테스트 →', "goTo('p2_s3')", 'btn-coral btn-full')}
-      </div>
-    </div>`;
+        <div class="result-score mono">${S.triPts}pt 획득</div>
+        <p class="result-sub">12가지 시나리오 중<br>정확히 분류한 케이스 점수입니다.</p>
+      </div>`);
   }
 
   const sc = TRIAGE[tri.idx];
   const answered = tri.answered;
-
   let feedbackHtml = '';
   if (answered !== null) {
     const correct = answered === sc.answer;
@@ -501,7 +417,7 @@ function renderP2S2() {
     feedbackHtml = `
       <div class="feedback ${correct ? 'feedback-correct' : 'feedback-wrong'}">
         <div class="feedback-icon">${correct ? '✅ 정답!' : '❌ 오답!'}</div>
-        <div class="triage-answer-tag" style="background:${col.bg}">${col.label}</div>
+        <div class="triage-answer-tag" style="background:${col.bg}">${col.label} — ${col.desc}</div>
         <div class="feedback-tip">${sc.why}</div>
         <button class="btn btn-coral btn-full" onclick="triNext()">
           ${tri.idx < TRIAGE.length - 1 ? '다음 →' : '결과 보기 →'}
@@ -509,16 +425,12 @@ function renderP2S2() {
       </div>`;
   }
 
-  return `
-  <div class="screen">
-    ${topBar(2,2,4)}
+  return wrapMain(`
     <div class="screen-inner">
       <div class="quiz-header">
-        <div class="quiz-progress mono">CASE ${sc.id} / ${TRIAGE.length}</div>
+        <span class="quiz-progress mono">CASE ${sc.id} / ${TRIAGE.length}</span>
       </div>
-      <div class="quiz-card">
-        <p class="quiz-q">${esc(sc.scenario)}</p>
-      </div>
+      <div class="quiz-card"><p class="quiz-q">${esc(sc.scenario)}</p></div>
       ${answered === null ? `
         <p class="choice-prompt">어느 등급으로 분류하시겠습니까?</p>
         <div class="triage-btns">
@@ -528,19 +440,26 @@ function renderP2S2() {
               <span class="triage-btn-sub">${v.desc}</span>
             </button>`).join('')}
         </div>` : feedbackHtml}
-    </div>
-  </div>`;
+    </div>`);
 }
 
-function renderP2S3() {
+function renderApt() {
   const apt = S.apt;
 
   if (apt.done && apt.result) {
     const t = APTITUDE_TYPES[apt.result];
-    return `
-    <div class="screen">
-      ${topBar(2,3,4)}
-      <div class="screen-inner center">
+    const rank = getRank();
+    const qaHtml = QA_LIST.map((item, i) => {
+      const open = S.qa.open[i];
+      return `
+        <div class="qa-item ${open ? 'qa-open' : ''}" onclick="toggleQa(${i})">
+          <div class="qa-q"><span>${esc(item.q)}</span><span class="qa-arrow">${open ? '▲' : '▼'}</span></div>
+          ${open ? `<div class="qa-a">${esc(item.a)}</div>` : ''}
+        </div>`;
+    }).join('');
+
+    return wrapMain(`
+      <div class="screen-inner">
         <div class="apt-result-card" style="border-color:${t.color}">
           <div class="apt-icon">${t.icon}</div>
           <div class="apt-type-title" style="color:${t.color}">${t.title}</div>
@@ -551,23 +470,26 @@ function renderP2S3() {
             ${t.tips.map(tip => `<div class="apt-tip">✦ ${tip}</div>`).join('')}
           </div>
         </div>
-        ${btn('Q&A 보기 →', "goTo('p2_s4')", 'btn-coral btn-full')}
-      </div>
-    </div>`;
+        <div class="final-rank-card" style="border-color:${rank.color}">
+          <div class="rank-icon">${rank.icon}</div>
+          <div class="rank-title mono" style="color:${rank.color}">${rank.title}</div>
+          <div class="rank-sub">${rank.sub}</div>
+          <div class="rank-name">${esc(S.name)} 님</div>
+          <div class="rank-score mono">${S.score}pt</div>
+          <button class="btn btn-share" onclick="shareResult()">결과 공유하기 📤</button>
+        </div>
+        <div class="qa-section-title">궁금했던 것들</div>
+        <div class="qa-list">${qaHtml}</div>
+      </div>`);
   }
 
   const q = APTITUDE_Q[apt.idx];
-
-  return `
-  <div class="screen">
-    ${topBar(2,3,4)}
+  return wrapMain(`
     <div class="screen-inner">
       <div class="quiz-header">
-        <div class="quiz-progress mono">Q ${apt.idx + 1} / ${APTITUDE_Q.length}</div>
+        <span class="quiz-progress mono">Q ${apt.idx + 1} / ${APTITUDE_Q.length}</span>
       </div>
-      <div class="quiz-card">
-        <p class="quiz-q">${esc(q.q)}</p>
-      </div>
+      <div class="quiz-card"><p class="quiz-q">${esc(q.q)}</p></div>
       <div class="apt-opts">
         ${q.opts.map((o,i) => `
           <button class="apt-opt ${apt.answered === i ? 'apt-opt-selected' : ''}" onclick="aptAnswer(${i})">
@@ -575,87 +497,43 @@ function renderP2S3() {
           </button>`).join('')}
       </div>
       ${apt.answered !== null ? `<button class="btn btn-coral btn-full" onclick="aptNext()">다음 →</button>` : ''}
-    </div>
-  </div>`;
-}
-
-function renderP2S4() {
-  const rank = getRank();
-  const qaHtml = QA_LIST.map((item, i) => {
-    const open = S.qa.open[i];
-    return `
-      <div class="qa-item ${open ? 'qa-open' : ''}" onclick="toggleQa(${i})">
-        <div class="qa-q">
-          <span>${esc(item.q)}</span>
-          <span class="qa-arrow">${open ? '▲' : '▼'}</span>
-        </div>
-        ${open ? `<div class="qa-a">${esc(item.a)}</div>` : ''}
-      </div>`;
-  }).join('');
-
-  return `
-  <div class="screen">
-    ${topBar(2,4,4)}
-    <div class="screen-inner">
-      <div class="final-rank-card" style="border-color:${rank.color}">
-        <div class="rank-icon">${rank.icon}</div>
-        <div class="rank-title mono" style="color:${rank.color}">${rank.title}</div>
-        <div class="rank-sub">${rank.sub}</div>
-        <div class="rank-name">${esc(S.name)} 님</div>
-        <div class="rank-score mono">${S.score} PT</div>
-        <button class="btn btn-share" onclick="shareResult()">결과 공유하기 📤</button>
-      </div>
-      <div class="section-title" style="font-size:1.2rem;margin-top:2rem">Q &amp; A</div>
-      <p class="section-sub">궁금한 것을 눌러서 펼쳐보세요.</p>
-      <div class="qa-list">${qaHtml}</div>
-    </div>
-  </div>`;
+    </div>`);
 }
 
 // ==================== RENDER ====================
 
 const SCREENS = {
   welcome: renderWelcome,
-  p1_s1:   renderP1S1,
-  p1_s2:   renderP1S2,
-  p1_s3:   renderP1S3,
-  p1_s4:   renderP1S4,
-  break:   renderBreak,
-  p2_s1:   renderP2S1,
-  p2_s2:   renderP2S2,
-  p2_s3:   renderP2S3,
-  p2_s4:   renderP2S4,
+  ox:      renderOX,
+  sit:     renderSit,
+  tri:     renderTri,
+  apt:     renderApt,
 };
 
 function render() {
   const fn = SCREENS[S ? S.screen : 'welcome'] || renderWelcome;
   document.getElementById('app').innerHTML = fn();
   window.scrollTo(0, 0);
+  const ni = document.getElementById('nameInput');
+  if (ni) ni.addEventListener('keydown', e => { if (e.key === 'Enter') startNew(); });
 }
 
-// ==================== EVENT HANDLERS ====================
-
-function attachListeners() {
-  const nameInput = document.getElementById('nameInput');
-  if (nameInput) {
-    nameInput.addEventListener('keydown', e => { if (e.key === 'Enter') startNew(); });
-  }
-}
+// ==================== HANDLERS ====================
 
 function startNew() {
   const input = document.getElementById('nameInput');
   const name = input ? input.value.trim() : '';
-  if (!name) { input && (input.style.borderColor = '#E63946'); return; }
+  if (!name) { if (input) input.style.borderColor = '#E63946'; return; }
   initState(name);
   render();
 }
 
 function resumeSession() {
   S = loadState();
+  if (S && !S.screen) S.screen = 'ox';
   render();
 }
 
-// OX Quiz
 function oxAnswer(val) {
   if (S.ox.answered !== null) return;
   const q = OX_QUIZ[S.ox.idx];
@@ -664,121 +542,83 @@ function oxAnswer(val) {
   if (correct) {
     S.ox.streak++;
     let pts = 10;
-    if (S.ox.streak >= 3) { pts += 5; S.ox.totalBonus += 5; }
-    S.score += pts;
+    if (S.ox.streak >= 3) pts += 5;
+    S.score += pts; S.oxPts += pts;
   } else {
     S.ox.streak = 0;
   }
-  saveState();
-  render();
+  saveState(); render();
 }
-
 function oxNext() {
   S.ox.idx++;
   S.ox.answered = null;
   if (S.ox.idx >= OX_QUIZ.length) S.ox.done = true;
-  saveState();
-  render();
+  saveState(); render();
 }
 
-// Situation Drama
 function sitAnswer(i) {
   if (S.sit.answered !== null) return;
   const sc = SITUATIONS[S.sit.idx];
   S.sit.answered = i;
-  S.score += sc.choices[i].score * 2;
-  saveState();
-  render();
+  const pts = sc.choices[i].score * 2;
+  S.score += pts; S.sitPts += pts;
+  saveState(); render();
 }
-
 function sitNext() {
   S.sit.idx++;
   S.sit.answered = null;
   if (S.sit.idx >= SITUATIONS.length) S.sit.done = true;
-  saveState();
-  render();
+  saveState(); render();
 }
 
-// Triage
 function triAnswer(val) {
   if (S.tri.answered !== null) return;
   const sc = TRIAGE[S.tri.idx];
   S.tri.answered = val;
-  if (val === sc.answer) S.score += 15;
-  saveState();
-  render();
+  if (val === sc.answer) { S.score += 15; S.triPts += 15; }
+  saveState(); render();
 }
-
 function triNext() {
   S.tri.idx++;
   S.tri.answered = null;
   if (S.tri.idx >= TRIAGE.length) S.tri.done = true;
-  saveState();
-  render();
+  saveState(); render();
 }
 
-// Aptitude
-function aptAnswer(i) {
-  S.apt.answered = i;
-  saveState();
-  render();
-}
-
+function aptAnswer(i) { S.apt.answered = i; saveState(); render(); }
 function aptNext() {
   if (S.apt.answered === null) return;
   const q = APTITUDE_Q[S.apt.idx];
-  const type = q.opts[S.apt.answered].type;
-  S.apt.scores[type]++;
+  S.apt.scores[q.opts[S.apt.answered].type]++;
   S.apt.idx++;
   S.apt.answered = null;
   if (S.apt.idx >= APTITUDE_Q.length) {
-    // determine result
-    let best = null, bestScore = -1;
-    for (const [k, v] of Object.entries(S.apt.scores)) {
-      if (v > bestScore) { bestScore = v; best = k; }
-    }
+    let best = null, bestVal = -1;
+    for (const [k,v] of Object.entries(S.apt.scores)) { if (v > bestVal) { bestVal = v; best = k; } }
     S.apt.result = best;
     S.apt.done = true;
   }
-  saveState();
-  render();
+  saveState(); render();
 }
 
-// Q&A
-function toggleQa(i) {
-  S.qa.open[i] = !S.qa.open[i];
-  saveState();
-  render();
-}
+function toggleQa(i) { S.qa.open[i] = !S.qa.open[i]; saveState(); render(); }
 
-// Share
 function shareResult() {
   const rank = getRank();
-  const text = `[Nurse Avengers] ${S.name} 님은 ${rank.title} (${rank.sub})! 점수: ${S.score}PT 🏥`;
+  const apt  = S.apt.result ? APTITUDE_TYPES[S.apt.result].title : '-';
+  const text = `[Nurse Avengers] ${S.name} — ${rank.title} · ${S.score}pt · 유형: ${apt} 🏥`;
   if (navigator.share) {
     navigator.share({ title:'Nurse Avengers 결과', text }).catch(() => {});
   } else {
-    navigator.clipboard.writeText(text).then(() => alert('결과가 클립보드에 복사되었습니다!')).catch(() => alert(text));
+    navigator.clipboard.writeText(text).then(() => alert('클립보드에 복사되었습니다!')).catch(() => alert(text));
   }
 }
 
 // ==================== INIT ====================
 
-(function () {
+(function() {
   const saved = loadState();
-  if (saved) {
-    S = saved;
-  } else {
-    S = null;
-  }
-  // Always show welcome on fresh load so user sees name input
-  const el = document.getElementById('app');
-  if (el) {
-    if (!S) {
-      el.innerHTML = renderWelcome();
-    } else {
-      render();
-    }
-    attachListeners();
-  }
+  S = saved || null;
+  if (S && !S.screen) S.screen = 'ox';
+  render();
 })();

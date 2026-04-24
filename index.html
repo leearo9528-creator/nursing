@@ -45,6 +45,113 @@
     .mono { font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; }
     b { font-weight: 700; }
 
+    /* ===== APP LAYOUT (탭 + 콘텐츠 + 하단바) ===== */
+    .app-layout {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ===== TOP NAV ===== */
+    .top-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background: var(--surf);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.15rem;
+      padding: 0.6rem 0.25rem 0.55rem;
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-family: 'Pretendard', sans-serif;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s, background .15s;
+      position: relative;
+    }
+    .nav-tab:hover  { background: var(--surf2); color: var(--text); }
+    .nav-tab.active { color: var(--teal); border-bottom-color: var(--teal); background: #F0FDFE; }
+    .nav-tab.done   { color: var(--green); }
+    .nav-tab.done.active { color: var(--green); border-bottom-color: var(--green); background: #F0FDF4; }
+
+    .nav-icon  { font-size: 1.25rem; line-height: 1; }
+    .nav-label { font-size: 0.65rem; font-weight: 600; letter-spacing: -0.01em; }
+    .nav-prog  {
+      font-size: 0.58rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: var(--surf3);
+      border-radius: 999px;
+      padding: 0.05rem 0.4rem;
+      color: var(--muted);
+    }
+    .nav-tab.active .nav-prog { background: #CFFAFE; color: var(--teal); }
+    .nav-tab.done   .nav-prog { background: #DCFCE7; color: var(--green); font-size: 0.75rem; }
+
+    /* ===== CONTENT AREA ===== */
+    .content-area { flex: 1; }
+
+    /* ===== BOTTOM BAR ===== */
+    .bottom-bar {
+      position: sticky;
+      bottom: 0;
+      z-index: 20;
+      background: var(--surf);
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -2px 8px rgba(15,23,42,0.07);
+      display: flex;
+      align-items: center;
+      padding: 0.55rem 1rem;
+      gap: 0.5rem;
+    }
+
+    .score-chips {
+      display: flex;
+      gap: 0.4rem;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .score-chip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--surf2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.3rem 0.5rem;
+      min-width: 0;
+      flex: 1;
+    }
+    .score-chip.chip-active {
+      background: #EFF6FF;
+      border-color: #BFDBFE;
+    }
+
+    .chip-label { font-size: 0.58rem; color: var(--muted); font-weight: 600; white-space: nowrap; }
+    .chip-val   { font-size: 0.72rem; font-family: 'JetBrains Mono', monospace; color: var(--text); font-weight: 700; }
+    .score-chip.chip-active .chip-val { color: var(--teal); }
+
+    .score-total {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 56px;
+      padding-left: 0.5rem;
+      border-left: 1px solid var(--border);
+    }
+    .score-total-rank { font-size: 1.1rem; line-height: 1; }
+    .score-total-val  { font-size: 0.85rem; font-weight: 700; color: var(--text); }
+
     /* ===== SCREEN ===== */
     .screen { min-height: 100vh; display: flex; flex-direction: column; background: var(--bg); animation: fadeUp .2s ease; }
 
@@ -345,6 +452,15 @@
     .result-title { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text); }
     .result-score { font-size: 2rem; color: var(--teal); margin-bottom: 0.75rem; font-family: 'JetBrains Mono', monospace; }
     .result-sub   { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.6; }
+
+    /* ===== APT RESULT EXTRAS ===== */
+    .qa-section-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 1.75rem 0 0.75rem;
+    }
+    .final-rank-card { margin-top: 1rem; }
 
     /* ===== Q&A ===== */
     .qa-list { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 2rem; }
