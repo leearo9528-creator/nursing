@@ -16,13 +16,23 @@ const SLIDES = [
     sub:'1교시 · 간호사의 다양한 근무지와 되는 길 (45분)',
   },
 
-  { type:'icebreak', period:1, color:'#D97706',
-    title:'아이스브레이킹 ❄️',
-    sub:'수업을 시작하기 전에, 분위기부터 풀어봅니다',
-    items:[
-      { num:'01', text:'옆자리 친구 이름을 30초 안에 외워보세요!' },
-      { num:'02', text:'"간호사" 하면 떠오르는 단어를 하나씩 외쳐보세요.' },
-      { num:'03', text:'주변에 간호사가 있는 친구, 손을 들어보세요 🙋' },
+  { type:'question', period:1, color:'#D97706',
+    icon:'💭',
+    title:'간호사 하면\n떠오르는 이미지가\n있나요?',
+    sub:'잠깐 떠올려 보세요. 옆 친구와 이야기해도 좋아요.'
+  },
+
+  { type:'image-collage', period:1, color:'#D97706',
+    title:'이런 이미지들, 떠오르지 않나요?',
+    sub:'여러분이 생각한 이미지와 얼마나 비슷한가요?',
+    cols:3,
+    images:[
+      { src:'https://images.unsplash.com/photo-1584467735867-4297ae2ebaaf?auto=format&fit=crop&w=700&q=80', caption:'하얀 유니폼' },
+      { src:'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=700&q=80', caption:'청진기' },
+      { src:'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=700&q=80', caption:'주사' },
+      { src:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=700&q=80', caption:'응급 상황' },
+      { src:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80', caption:'환자 돌봄' },
+      { src:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=700&q=80', caption:'수술실' },
     ]
   },
 
@@ -208,14 +218,13 @@ const SLIDES = [
   },
 
   { type:'grid', period:2, color:'#7C3AED',
-    title:'5가지 간호사 유형',
-    cols:5,
+    title:'4가지 간호사 유형',
+    cols:2,
     items:[
-      { icon:'🚨', name:'ER FIGHTER',       sub:'응급실형',    color:'#E63946', desc:'위기 속에서 빛나는 타입' },
-      { icon:'🛡️', name:'ICU GUARDIAN',     sub:'중환자실형',  color:'#0891B2', desc:'24시간 지키는 수호자' },
-      { icon:'⚕️', name:'OR PERFECTIONIST', sub:'수술실형',    color:'#7C3AED', desc:'완벽을 추구하는 전문가' },
-      { icon:'🌿', name:'COMMUNITY HEALER', sub:'보건교사형',  color:'#16A34A', desc:'지역사회를 치유하는 교육자' },
-      { icon:'🔬', name:'SCIENCE MIND',     sub:'연구형',      color:'#D97706', desc:'지식으로 발전시키는 탐구자' },
+      { icon:'🚨', name:'ER FIGHTER',       sub:'응급실형',    color:'#E63946', desc:'위기 속에서 빛나는 타입 · 빠른 판단력이 무기' },
+      { icon:'🛡️', name:'ICU GUARDIAN',     sub:'중환자실형',  color:'#0891B2', desc:'24시간 지키는 수호자 · 집중력과 끈기가 강점' },
+      { icon:'⚕️', name:'OR PERFECTIONIST', sub:'수술실형',    color:'#7C3AED', desc:'완벽을 추구하는 전문가 · 정확성과 무균 원칙' },
+      { icon:'🌿', name:'COMMUNITY HEALER', sub:'보건교사형',  color:'#16A34A', desc:'지역사회를 치유하는 교육자 · 따뜻함이 강점' },
     ]
   },
 
@@ -228,7 +237,7 @@ const SLIDES = [
       '6개 질문에 솔직하게 답해 주세요',
       '결과에 나오는 "지금부터 해볼 수 있는 것" 꼭 확인!',
     ],
-    hint:'총 6문항 · 예상 소요 10분 · 결과를 옆 친구와 비교해 보세요'
+    hint:'총 10문항 · 예상 소요 10분 · 결과를 옆 친구와 비교해 보세요'
   },
 
   { type:'section', period:2, color:'#0891B2',
@@ -237,27 +246,18 @@ const SLIDES = [
     sub:'궁금한 것, 무엇이든 물어보세요'
   },
 
-  { type:'grid', period:2, color:'#0891B2',
-    title:'친구들이 많이 물어보는 것들',
-    sub:'이 중 궁금한 게 있으면 바로 손 드세요',
-    cols:4,
+  { type:'qa', period:2, color:'#0891B2',
+    title:'Q & A',
     items:[
-      { icon:'💰', name:'연봉?',        color:'#D97706' },
-      { icon:'👨', name:'남자도?',      color:'#0891B2' },
-      { icon:'🩸', name:'피 무서워요',  color:'#E63946' },
-      { icon:'📚', name:'공부 얼마나?', color:'#7C3AED' },
-      { icon:'🌙', name:'야간 근무?',   color:'#1E3A8A' },
-      { icon:'💼', name:'결혼 후에도?', color:'#16A34A' },
-      { icon:'⚠️', name:'실수하면?',    color:'#DC2626' },
-      { icon:'🌏', name:'해외 취업?',   color:'#0EA5E9' },
+      { q:'연봉은 얼마인가요?',                       a:'신규 간호사는 연 3,000~3,500만 원 수준. 경력 5년 이상이면 4,000~5,000만 원, 수간호사는 6,000만 원 이상도 가능합니다. 해외 취업 시 연 1억 원 이상도 현실입니다.' },
+      { q:'남자도 간호사가 될 수 있나요?',             a:'물론입니다! 국내 남성 간호사는 약 3만 명으로 빠르게 늘고 있습니다. 응급실·중환자실·군 병원에서 특히 많이 활약합니다.' },
+      { q:'피를 보면 무서운데 간호사를 해도 될까요?',  a:'대부분의 간호사가 처음엔 비슷하게 느낍니다. 실습을 거듭하면 자연스럽게 익숙해집니다. 피를 보지 않는 분야(보건교사·연구간호사)도 많으니 걱정 마세요.' },
+      { q:'간호사가 되려면 공부를 얼마나 해야 하나요?', a:'간호학과 4년 + 국가고시 준비입니다. 해부학·생리학·약리학 등 어려운 과목이 많지만, 졸업 후 거의 바로 취업되는 몇 안 되는 전공입니다!' },
+      { q:'야간 근무는 정말 힘든가요?',                a:'솔직히 힘듭니다. 병원 간호사는 3교대를 합니다. 대신 야간 수당이 높고, 경력이 쌓이면 전담직(낮만 근무)으로 전환도 가능합니다.' },
+      { q:'결혼 후에도 계속 일할 수 있나요?',          a:'네! 간호사 면허는 평생 유지됩니다. 출산 후 육아휴직을 쓰고 복귀하거나, 파트타임·클리닉 근무로 전환하는 분이 많아 경력 단절이 적은 편입니다.' },
+      { q:'실수로 주사를 잘못 놓으면 어떻게 되나요?',  a:"그래서 '5 RIGHT' 원칙(올바른 환자·약·용량·경로·시간)을 철저히 지킵니다. 실수가 나면 즉시 보고하고 팀이 함께 대응합니다 — 숨기는 것이 더 위험합니다." },
+      { q:'해외에서도 간호사로 일할 수 있나요?',       a:'네! 미국·캐나다·호주 등에서 간호사를 적극 모집합니다. 영어 실력 + 현지 면허 시험을 준비하면 해외 취업이 가능하며 연봉도 훨씬 높습니다.' },
     ]
-  },
-
-  { type:'qa-open', period:2, color:'#0891B2',
-    icon:'❓',
-    title:'자유 질문 시간',
-    sub:'지금이 기회입니다',
-    tip:'아직 대답 못 들은 질문 있나요?\n손을 들고 자유롭게 물어보세요.\n이 직업의 진짜 이야기를 들려드립니다.'
   },
 
   { type:'closing', period:2, color:P2_COLOR,
@@ -367,18 +367,29 @@ function rSection(s) {
     ${qrFloat()}`;
 }
 
-function rIcebreak(s) {
+function rQuestion(s) {
+  return `
+    <div class="sc sc-centered">
+      <div class="sc-icon">${s.icon}</div>
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      <div class="sc-sub">${esc(s.sub)}</div>
+    </div>
+    ${qrFloat()}`;
+}
+
+function rImageCollage(s) {
+  const subHtml = s.sub ? `<div class="sc-sub" style="margin:0.25rem auto 0;max-width:700px">${esc(s.sub)}</div>` : '';
   return `
     <div class="sc">
       <div class="sc-title-center">
         <h1 class="sc-h1">${esc(s.title)}</h1>
-        <div class="sc-sub" style="margin:0 auto;max-width:700px">${esc(s.sub)}</div>
+        ${subHtml}
       </div>
-      <div class="sc-grid" style="grid-template-columns:1fr;gap:0.85rem;align-content:center;">
-        ${s.items.map(it => `
-          <div class="sc-card ib-card">
-            <div class="ib-num">${esc(it.num)}</div>
-            <div class="ib-text">${esc(it.text)}</div>
+      <div class="sc-grid cols-${s.cols || 3}">
+        ${s.images.map(im => `
+          <div class="im-card">
+            <img src="${esc(im.src)}" alt="${esc(im.caption)}">
+            <div class="im-caption">${esc(im.caption)}</div>
           </div>`).join('')}
       </div>
     </div>
@@ -447,10 +458,12 @@ function rTheory(s) {
 function rSteps(s) {
   return `
     <div class="sc">
-      <h1 class="sc-h1">${esc(s.title)}</h1>
-      <div style="display:flex;flex-direction:column;gap:0.85rem;flex:1;justify-content:center;padding-bottom:120px;">
+      <div class="sc-title-center" style="margin-bottom:1rem;">
+        <h1 class="sc-h1" style="margin-bottom:0;">${esc(s.title)}</h1>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.6rem;flex:1;min-height:0;padding-right:130px;">
         ${s.steps.map(st => `
-          <div class="sc-card st-card">
+          <div class="sc-card st-card" style="padding:0.85rem 1.2rem;">
             <div class="st-num">${esc(st.num)}</div>
             <div class="st-body">
               <div class="st-h">${esc(st.title)}</div>
@@ -518,15 +531,30 @@ function rBreak(s) {
     ${qrFloat()}`;
 }
 
-function rQAOpen(s) {
+function rQA(s) {
   return `
-    <div class="sc sc-centered">
-      <div class="sc-icon" style="font-size:clamp(4rem,6vw,5.5rem);">${s.icon}</div>
-      <h1 class="sc-h1">${esc(s.title)}</h1>
-      <div class="sc-sub" style="color:var(--accent);font-weight:700;">${esc(s.sub)}</div>
-      <div style="font-size:var(--fs-body-lg);color:var(--text);line-height:1.9;white-space:pre-line;max-width:680px;background:rgba(255,255,255,0.85);padding:1.5rem 2rem;border-radius:var(--r-md);border-left:5px solid var(--accent);font-weight:500;margin-top:1rem;">${esc(s.tip)}</div>
+    <div class="sc">
+      <div class="sc-title-center" style="margin-bottom:1.25rem;">
+        <h1 class="sc-h1" style="margin-bottom:0;">${esc(s.title)}</h1>
+      </div>
+      <div class="qa-list" style="padding-right:130px;">
+        ${s.items.map((it, i) => `
+          <div class="qa-item" id="qaItem-${i}">
+            <button class="qa-q-btn" onclick="toggleQA(${i})">
+              <span class="qa-q-num mono">${String(i + 1).padStart(2,'0')}</span>
+              <span class="qa-q-text">${esc(it.q)}</span>
+              <span class="qa-q-toggle">답변 보기</span>
+            </button>
+            <div class="qa-a-box">${esc(it.a)}</div>
+          </div>`).join('')}
+      </div>
     </div>
     ${qrFloat()}`;
+}
+
+function toggleQA(i) {
+  const el = document.getElementById('qaItem-' + i);
+  if (el) el.classList.toggle('open');
 }
 
 function rClosing(s) {
@@ -541,17 +569,18 @@ function rClosing(s) {
 }
 
 const RENDERERS = {
-  cover:     rCover,
-  section:   rSection,
-  icebreak:  rIcebreak,
-  grid:      rGrid,
-  theory:    rTheory,
-  steps:     rSteps,
-  triage:    rTriage,
-  activity:  rActivity,
-  break:     rBreak,
-  'qa-open': rQAOpen,
-  closing:   rClosing,
+  cover:            rCover,
+  section:          rSection,
+  question:         rQuestion,
+  'image-collage':  rImageCollage,
+  grid:             rGrid,
+  theory:           rTheory,
+  steps:            rSteps,
+  triage:           rTriage,
+  activity:         rActivity,
+  break:            rBreak,
+  qa:               rQA,
+  closing:          rClosing,
 };
 
 // Map slide type → wrapper class applied to #slideFrame (for CSS bg)
@@ -561,7 +590,6 @@ function wrapperClass(s) {
     case 'section':  return 'slide-section slide-dark';
     case 'activity': return 'slide-activity';
     case 'break':    return 'slide-light-gradient';
-    case 'qa-open':  return 'slide-light-gradient';
     case 'closing':  return 'slide-closing slide-dark';
     default:         return '';
   }

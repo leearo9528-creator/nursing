@@ -681,6 +681,109 @@
 
     /* Activity slide hides the floating QR (uses embedded one) */
     .slide-activity .slide > .slide-qr { display: none; }
+
+    /* ══════════════════════════════════════════════════════════════
+       IMAGE COLLAGE — 이미지 그리드
+    ══════════════════════════════════════════════════════════════ */
+    .im-card {
+      position: relative;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: var(--sh-s);
+      aspect-ratio: 4/3;
+      background: var(--surf3);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .im-card:hover { transform: translateY(-2px); box-shadow: var(--sh-m); }
+    .im-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .im-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(15,23,42,0.82) 0%, rgba(15,23,42,0.0) 100%);
+      color: #fff;
+      padding: 1.2rem 0.9rem 0.7rem;
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       QA LIST — 클릭해서 답변 펼치기
+    ══════════════════════════════════════════════════════════════ */
+    .qa-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+    }
+    .qa-item {
+      background: var(--surf);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      box-shadow: var(--sh-s);
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .qa-item:hover { border-color: var(--accent); }
+    .qa-item.open { border-color: var(--accent); box-shadow: var(--sh-m); }
+
+    .qa-q-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      padding: 0.85rem 1.2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Pretendard';
+    }
+    .qa-q-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      min-width: 28px;
+    }
+    .qa-q-text {
+      flex: 1;
+      font-size: var(--fs-body-lg);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+    }
+    .qa-q-toggle {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 999px;
+      padding: 0.28rem 0.8rem;
+      flex-shrink: 0;
+      transition: background .2s;
+    }
+    .qa-item.open .qa-q-toggle {
+      background: var(--muted);
+    }
+    .qa-item.open .qa-q-toggle::before { content: '닫기'; }
+    .qa-item.open .qa-q-toggle { font-size: 0; padding: 0.28rem 0.8rem; }
+    .qa-item.open .qa-q-toggle::before { font-size: 0.72rem; }
+
+    .qa-a-box {
+      display: none;
+      padding: 0.9rem 1.2rem 1rem calc(28px + 1.2rem + 0.85rem);
+      background: color-mix(in srgb, var(--accent) 6%, white);
+      border-top: 1px solid var(--border);
+      font-size: var(--fs-body);
+      color: var(--sub);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .qa-item.open .qa-a-box { display: block; }
   </style>
 </head>
 <body>

@@ -83,42 +83,60 @@ const APTITUDE_Q = [
     { text:"침착하게 전체 상황을 먼저 파악한다", type:"ICU" },
     { text:"정해진 절차대로 체계적으로 움직인다", type:"OR" },
     { text:"주변 사람들을 먼저 안정시킨다", type:"COMMUNITY" },
-    { text:"원인이 뭔지 분석하고 싶어진다", type:"SCIENCE" },
   ]},
   { q:"가장 뿌듯함을 느끼는 순간은?", opts:[
     { text:"위기를 내 손으로 해결했을 때", type:"ER" },
     { text:"환자가 조금씩 안정되는 걸 지켜볼 때", type:"ICU" },
     { text:"일을 실수 없이 완벽하게 마쳤을 때", type:"OR" },
     { text:"내 말 한마디가 누군가의 습관을 바꿀 때", type:"COMMUNITY" },
-    { text:"새로운 사실을 발견하거나 이해했을 때", type:"SCIENCE" },
   ]},
   { q:"나를 가장 잘 표현하는 말은?", opts:[
     { text:"빠르고 결단력 있다", type:"ER" },
     { text:"꼼꼼하고 끈기 있다", type:"ICU" },
     { text:"정확하고 완벽주의다", type:"OR" },
     { text:"따뜻하고 교육적이다", type:"COMMUNITY" },
-    { text:"분석적이고 호기심이 많다", type:"SCIENCE" },
   ]},
   { q:"가장 싫은 환경은?", opts:[
     { text:"조용하고 반복적인 환경", type:"ER" },
     { text:"변화가 너무 많은 혼돈스러운 환경", type:"ICU" },
     { text:"실수가 용납되는 느슨한 환경", type:"OR" },
     { text:"사람과의 소통이 없는 환경", type:"COMMUNITY" },
-    { text:"창의적 사고가 필요 없는 환경", type:"SCIENCE" },
   ]},
   { q:"이상적인 롤모델은?", opts:[
     { text:"영웅적으로 활약하는 사람", type:"ER" },
     { text:"묵묵히 환자 곁을 지키는 사람", type:"ICU" },
     { text:"정밀한 기술을 가진 전문가", type:"OR" },
     { text:"지역사회를 바꾸는 교육자", type:"COMMUNITY" },
-    { text:"연구로 세상을 바꾸는 과학자", type:"SCIENCE" },
   ]},
   { q:"10년 후 나의 모습은?", opts:[
     { text:"현장 최전선에서 여전히 뛰고 있다", type:"ER" },
     { text:"중증 환자 케어의 전문가로 인정받는다", type:"ICU" },
     { text:"수술실의 없어선 안 될 핵심 파트너다", type:"OR" },
     { text:"학생들의 건강을 지키는 따뜻한 선생님이다", type:"COMMUNITY" },
-    { text:"의학 발전에 기여하는 연구자다", type:"SCIENCE" },
+  ]},
+  { q:"친구와 갈등이 생겼을 때 나는?", opts:[
+    { text:"지금 당장 이야기해서 풀어버린다", type:"ER" },
+    { text:"한 발 물러서서 관찰하고 생각한다", type:"ICU" },
+    { text:"원인을 분석해서 해결책을 제시한다", type:"OR" },
+    { text:"감정부터 공감하고 천천히 풀어간다", type:"COMMUNITY" },
+  ]},
+  { q:"내 공부 스타일은?", opts:[
+    { text:"몰아서 짧고 강하게 (스프린트형)", type:"ER" },
+    { text:"매일 꾸준히 오래 (마라톤형)", type:"ICU" },
+    { text:"완벽한 계획표대로 체계적으로", type:"OR" },
+    { text:"친구들과 함께 가르쳐주며", type:"COMMUNITY" },
+  ]},
+  { q:"팀 프로젝트에서 내 역할은?", opts:[
+    { text:"앞에서 이끄는 리더", type:"ER" },
+    { text:"뒤에서 흐름을 점검하는 관찰자", type:"ICU" },
+    { text:"꼼꼼하게 마무리하는 담당", type:"OR" },
+    { text:"팀 분위기를 살리는 조율자", type:"COMMUNITY" },
+  ]},
+  { q:"여가 시간에 즐기는 활동은?", opts:[
+    { text:"격렬한 운동이나 액션 영화", type:"ER" },
+    { text:"조용한 독서나 명상", type:"ICU" },
+    { text:"손으로 하는 취미 (퍼즐·뜨개질·그림)", type:"OR" },
+    { text:"친구 만나기, SNS 활동", type:"COMMUNITY" },
   ]},
 ];
 
@@ -127,7 +145,6 @@ const APTITUDE_TYPES = {
   ICU:       { title:"ICU GUARDIAN",     label:"중환자실형", color:"#0891B2", icon:"🛡️", desc:"환자 곁에서 24시간 지키는 수호자! 집중력과 꼼꼼함으로 위중한 환자의 회복을 돕습니다.", tips:["생리학·해부학 기초 공부 시작하기","의학 다큐멘터리 시청하기","의료 봉사 활동에 참여하기"] },
   OR:        { title:"OR PERFECTIONIST", label:"수술실형",   color:"#7C3AED", icon:"⚕️", desc:"완벽을 추구하는 정밀 전문가! 수술실의 한 치 오차도 용납하지 않는 정확성이 강점입니다.", tips:["손 기술 취미 찾기 (뜨개질·종이접기)","의학 용어 50개 외우기","수술 관련 의학 유튜브 구독하기"] },
   COMMUNITY: { title:"COMMUNITY HEALER", label:"보건교사형", color:"#16A34A", icon:"🌿", desc:"지역사회를 치유하는 교육자! 건강 지식을 전달하고 예방에 힘씁니다.", tips:["보건 관련 책 읽기","학교 보건실 선생님께 진로 여쭤보기","건강 관련 UCC·발표 자료 만들어보기"] },
-  SCIENCE:   { title:"SCIENCE MIND",     label:"연구형",     color:"#D97706", icon:"🔬", desc:"지식으로 의학을 발전시키는 탐구자! 데이터와 연구를 통해 더 나은 의료를 만들어갑니다.", tips:["과학 실험 동아리 가입하기","청소년용 의학 도서 읽기","데이터 분석 기초(엑셀·통계) 배우기"] },
 };
 
 const QA_LIST = [
@@ -166,7 +183,7 @@ const TABS = [
 
 // ==================== STATE ====================
 
-const STORAGE_KEY = 'nurse_avengers_v2';
+const STORAGE_KEY = 'nurse_avengers_v3';
 
 let S = null;
 
@@ -187,7 +204,7 @@ function initState(name) {
     ox:  { idx:0, answered:null, streak:0, done:false },
     sit: { idx:0, answered:null, done:false },
     tri: { idx:0, answered:null, done:false },
-    apt: { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0,SCIENCE:0}, result:null, done:false },
+    apt: { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0}, result:null, done:false },
     qa:  { open:{} },
   };
   saveState();
