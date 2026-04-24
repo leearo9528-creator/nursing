@@ -507,27 +507,41 @@
       margin-top: 0.3rem;
     }
 
-    /* Triage card (colored bar left, label + desc) */
-    .tr-card { border-left: 8px solid var(--c); border-top: none; gap: 0.45rem; }
-    .tr-row { display: flex; align-items: baseline; gap: 0.6rem; }
-    .tr-label {
+    /* Triage card — default: solid color block */
+    .tr-card {
+      background: var(--c);
+      border-left: none;
+      border-top: none;
+      gap: 0;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-left 0.3s;
+      user-select: none;
+    }
+    .tr-card .tr-row { display: flex; align-items: baseline; gap: 0.6rem; }
+    .tr-card .tr-label {
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(1.3rem, 2vw, 1.7rem);
-      color: var(--c);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: #fff;
+      transition: color 0.3s, font-size 0.3s;
     }
-    .tr-sub {
+    .tr-card .tr-sub {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      color: var(--muted);
+      color: rgba(255,255,255,0.75);
       letter-spacing: 0.15em;
+      transition: color 0.3s;
     }
-    .tr-desc {
+    .tr-card .tr-desc {
+      display: none;
       font-size: var(--fs-body);
       color: var(--text);
       font-weight: 600;
     }
-    .tr-ex {
+    .tr-card .tr-ex {
+      display: none;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
       color: var(--sub);
@@ -535,6 +549,18 @@
       padding: 0.4rem 0.6rem;
       border-radius: 6px;
     }
+    /* open state: current design */
+    .tr-card.open {
+      background: var(--surf);
+      border-left: 8px solid var(--c);
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.45rem;
+    }
+    .tr-card.open .tr-label { color: var(--c); font-size: clamp(1.3rem, 2vw, 1.7rem); }
+    .tr-card.open .tr-sub   { color: var(--muted); }
+    .tr-card.open .tr-desc  { display: block; }
+    .tr-card.open .tr-ex    { display: block; }
 
     /* Numbered step (5 steps) */
     .st-card {

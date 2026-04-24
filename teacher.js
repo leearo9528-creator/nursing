@@ -491,8 +491,8 @@ function rTriage(s) {
         <h1 class="sc-h1">${esc(s.title)}</h1>
       </div>
       <div class="sc-grid cols-2">
-        ${s.cards.map(c => `
-          <div class="sc-card tr-card" style="--c:${c.color}">
+        ${s.cards.map((c, i) => `
+          <div class="sc-card tr-card" style="--c:${c.color}" onclick="toggleTri(this)">
             <div class="tr-row">
               <div class="tr-label">${esc(c.label)}</div>
               <div class="tr-sub mono">${esc(c.sub)}</div>
@@ -503,6 +503,10 @@ function rTriage(s) {
       </div>
     </div>
 `;
+}
+
+function toggleTri(el) {
+  el.classList.toggle('open');
 }
 
 function rActivity(s) {
