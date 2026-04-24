@@ -1,16 +1,14 @@
 'use strict';
 
-// ═══════════════════════════════════════════════════════════
-//                  SLIDE DECK — 수업 자료
-// ═══════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
+//   SLIDE DECK — 간호사 진로 특강 (1교시 + 2교시, 총 29장)
+// ════════════════════════════════════════════════════════════════
 
 const P1_COLOR = '#0891B2';  // 1교시 — 티얼
 const P2_COLOR = '#E63946';  // 2교시 — 코랄
 
 const SLIDES = [
-  // ─────────────────────────────────────────────
-  // 1 교 시  (45분) — 간호사의 세계
-  // ─────────────────────────────────────────────
+  // ───────── 1교시 ─────────
 
   { type:'cover', period:1, color:P1_COLOR,
     kicker:'2025 간호사 진로 특강',
@@ -18,7 +16,7 @@ const SLIDES = [
     sub:'1교시 · 간호사의 다양한 근무지와 되는 길 (45분)',
   },
 
-  { type:'icebreak', period:1,
+  { type:'icebreak', period:1, color:'#D97706',
     title:'아이스브레이킹 ❄️',
     sub:'수업을 시작하기 전에, 분위기부터 풀어봅니다',
     items:[
@@ -36,6 +34,7 @@ const SLIDES = [
 
   { type:'grid', period:1, color:P1_COLOR,
     title:'오늘 알아볼 6가지 근무지',
+    cols:3,
     items:[
       { icon:'🚨', name:'응급실',      sub:'ER',     color:'#E63946' },
       { icon:'🔴', name:'중환자실',    sub:'ICU',    color:'#0891B2' },
@@ -116,15 +115,14 @@ const SLIDES = [
   { type:'steps', period:1, color:'#7C3AED',
     title:'간호사 되는 길 5단계',
     steps:[
-      { num:'01', title:'중·고등학교',     body:'이과 계열 과목 집중(생물·화학). 내신 관리가 간호학과 입학의 첫 단추입니다.' },
-      { num:'02', title:'간호학과 입학',   body:'4년제 간호학과 또는 3년제 간호전문대. 경쟁률이 높고 수능 성적이 중요합니다.' },
-      { num:'03', title:'임상 실습',       body:'병원에서 직접 실습. 가장 치열하고 가장 많이 성장하는 시간입니다.' },
-      { num:'04', title:'국가고시 합격',   body:'연 1회(1월) 시행. 합격률 약 90~95%. 즉시 면허가 발급됩니다!' },
-      { num:'05', title:'취업 & 전문화',   body:'병원 취업 → 전문간호사 → 연구 → 해외 진출까지 무한 확장.' },
+      { num:'01', title:'중·고등학교',   body:'이과 계열(생물·화학) 집중. 내신 관리가 간호학과 입학의 첫 단추입니다.' },
+      { num:'02', title:'간호학과 입학', body:'4년제 간호학과 또는 3년제 간호전문대. 경쟁률이 높고 수능 성적이 중요합니다.' },
+      { num:'03', title:'임상 실습',     body:'병원에서 직접 실습. 가장 치열하고 가장 많이 성장하는 시간입니다.' },
+      { num:'04', title:'국가고시 합격', body:'연 1회(1월) 시행. 합격률 약 90~95%. 즉시 면허가 발급됩니다!' },
+      { num:'05', title:'취업 & 전문화', body:'병원 취업 → 전문간호사 → 연구 → 해외 진출까지 무한 확장.' },
     ]
   },
 
-  // ─── 학생 참여 : OX 퀴즈 ───
   { type:'activity', period:1, act:'ox', color:'#E63946',
     icon:'🎯',
     title:'OX 퀴즈 게임',
@@ -137,7 +135,6 @@ const SLIDES = [
     hint:'총 10문제 · 예상 소요 15분'
   },
 
-  // ─── 학생 참여 : 상황극 ───
   { type:'activity', period:1, act:'sit', color:'#D97706',
     icon:'🎭',
     title:'상황극 — 환자와의 대화',
@@ -150,16 +147,15 @@ const SLIDES = [
     hint:'총 4장면 · 예상 소요 15분'
   },
 
-  { type:'closing-period', period:1, color:P1_COLOR,
+  { type:'break', period:1, color:P1_COLOR,
+    icon:'☕',
     title:'1교시 마무리',
     sub:'잠시 쉬어갑니다',
     body:'다음 시간엔 실제 재난 현장에서 간호사가 하는\n"생명을 살리는 판단"을 배웁니다.',
     meta:'— 10분 휴식 —'
   },
 
-  // ─────────────────────────────────────────────
-  // 2 교 시  (45분) — 생명을 살리는 판단
-  // ─────────────────────────────────────────────
+  // ───────── 2교시 ─────────
 
   { type:'cover', period:2, color:P2_COLOR,
     kicker:'2025 간호사 진로 특강',
@@ -183,17 +179,16 @@ const SLIDES = [
     img:'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80'
   },
 
-  { type:'triage-cards', period:2, color:P2_COLOR,
+  { type:'triage', period:2, color:P2_COLOR,
     title:'4색 분류 체계',
     cards:[
       { color:'#E63946', label:'RED',    sub:'즉시',   desc:'생명 위협. 즉각 처치하지 않으면 사망.', example:'의식 없는 외상, 심근경색 의심' },
-      { color:'#D97706', label:'YELLOW', sub:'긴급',   desc:'심각하지만 30분 내 처치 가능.',           example:'골절, 중등도 화상' },
-      { color:'#16A34A', label:'GREEN',  sub:'비응급', desc:'경상. 순서를 기다려도 생명 지장 없음.',   example:'가벼운 타박상, 단순 염좌' },
-      { color:'#374151', label:'BLACK',  sub:'지연',   desc:'소생 불가능. 제한 자원 하 처치 불가.',    example:'심폐정지 + 소생 불가 징후' },
+      { color:'#D97706', label:'YELLOW', sub:'긴급',   desc:'심각하지만 30분 내 처치 가능.',         example:'골절, 중등도 화상' },
+      { color:'#16A34A', label:'GREEN',  sub:'비응급', desc:'경상. 순서를 기다려도 지장 없음.',      example:'가벼운 타박상, 단순 염좌' },
+      { color:'#374151', label:'BLACK',  sub:'지연',   desc:'소생 불가능. 제한 자원 하 처치 불가.',  example:'심폐정지 + 소생 불가 징후' },
     ]
   },
 
-  // ─── 학생 참여 : 트리아지 ───
   { type:'activity', period:2, act:'tri', color:P2_COLOR,
     icon:'🚑',
     title:'트리아지 게임',
@@ -212,18 +207,18 @@ const SLIDES = [
     sub:'5가지 유형 중 나에게 맞는 타입을 찾아봅니다'
   },
 
-  { type:'types-grid', period:2, color:'#7C3AED',
+  { type:'grid', period:2, color:'#7C3AED',
     title:'5가지 간호사 유형',
-    types:[
-      { icon:'🚨', name:'ER FIGHTER',       label:'응급실형',    color:'#E63946', desc:'위기 속에서 빛나는 타입' },
-      { icon:'🛡️', name:'ICU GUARDIAN',     label:'중환자실형',  color:'#0891B2', desc:'24시간 지키는 수호자' },
-      { icon:'⚕️', name:'OR PERFECTIONIST', label:'수술실형',    color:'#7C3AED', desc:'완벽을 추구하는 전문가' },
-      { icon:'🌿', name:'COMMUNITY HEALER', label:'보건교사형',  color:'#16A34A', desc:'지역사회를 치유하는 교육자' },
-      { icon:'🔬', name:'SCIENCE MIND',     label:'연구형',      color:'#D97706', desc:'지식으로 발전시키는 탐구자' },
+    cols:5,
+    items:[
+      { icon:'🚨', name:'ER FIGHTER',       sub:'응급실형',    color:'#E63946', desc:'위기 속에서 빛나는 타입' },
+      { icon:'🛡️', name:'ICU GUARDIAN',     sub:'중환자실형',  color:'#0891B2', desc:'24시간 지키는 수호자' },
+      { icon:'⚕️', name:'OR PERFECTIONIST', sub:'수술실형',    color:'#7C3AED', desc:'완벽을 추구하는 전문가' },
+      { icon:'🌿', name:'COMMUNITY HEALER', sub:'보건교사형',  color:'#16A34A', desc:'지역사회를 치유하는 교육자' },
+      { icon:'🔬', name:'SCIENCE MIND',     sub:'연구형',      color:'#D97706', desc:'지식으로 발전시키는 탐구자' },
     ]
   },
 
-  // ─── 학생 참여 : 적성 테스트 ───
   { type:'activity', period:2, act:'apt', color:'#7C3AED',
     icon:'🧭',
     title:'나의 적성 테스트',
@@ -242,362 +237,387 @@ const SLIDES = [
     sub:'궁금한 것, 무엇이든 물어보세요'
   },
 
-  { type:'qa-grid', period:2, color:'#0891B2',
+  { type:'grid', period:2, color:'#0891B2',
     title:'친구들이 많이 물어보는 것들',
     sub:'이 중 궁금한 게 있으면 바로 손 드세요',
+    cols:4,
     items:[
-      { icon:'💰', q:'연봉 얼마?' },
-      { icon:'👨', q:'남자도 가능?' },
-      { icon:'🩸', q:'피 무서워요' },
-      { icon:'📚', q:'공부 얼마나?' },
-      { icon:'🌙', q:'야간 근무?' },
-      { icon:'💼', q:'결혼 후에도?' },
-      { icon:'⚠️', q:'실수하면?' },
-      { icon:'🌏', q:'해외 취업?' },
+      { icon:'💰', name:'연봉?',        color:'#D97706' },
+      { icon:'👨', name:'남자도?',      color:'#0891B2' },
+      { icon:'🩸', name:'피 무서워요',  color:'#E63946' },
+      { icon:'📚', name:'공부 얼마나?', color:'#7C3AED' },
+      { icon:'🌙', name:'야간 근무?',   color:'#1E3A8A' },
+      { icon:'💼', name:'결혼 후에도?', color:'#16A34A' },
+      { icon:'⚠️', name:'실수하면?',    color:'#DC2626' },
+      { icon:'🌏', name:'해외 취업?',   color:'#0EA5E9' },
     ]
   },
 
   { type:'qa-open', period:2, color:'#0891B2',
+    icon:'❓',
     title:'자유 질문 시간',
     sub:'지금이 기회입니다',
-    tip:'아직 대답 못 들은 질문 있나요?\n\n손을 들고 자유롭게 물어보세요.\n이 직업의 진짜 이야기를 들려드립니다.'
+    tip:'아직 대답 못 들은 질문 있나요?\n손을 들고 자유롭게 물어보세요.\n이 직업의 진짜 이야기를 들려드립니다.'
   },
 
   { type:'closing', period:2, color:P2_COLOR,
+    icon:'💙',
     title:'간호사는\n기술이 아니라\n사람을 보는 직업입니다',
     sub:'오늘 체험한 판단과 공감이, 바로 간호의 핵심입니다.',
-    meta:'오늘 수업에 참여해 주셔서 감사합니다 💙'
+    meta:'오늘 수업에 참여해 주셔서 감사합니다'
   },
 ];
 
-// ═══════════════════════════════════════════════════════════
-//                   STATE + NAV
-// ═══════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
+//   STATE + NAV
+// ════════════════════════════════════════════════════════════════
 
 let T = { idx: 0 };
-let QR_URL = '';
+let QR_DATA_URL = '';
+const STUDENT_URL = location.origin + '/';
 
-function cur()       { return SLIDES[T.idx]; }
-function next()      { if (T.idx < SLIDES.length - 1) { T.idx++; render(); } }
-function prev()      { if (T.idx > 0)                  { T.idx--; render(); } }
-function goSlide(i)  { T.idx = Math.max(0, Math.min(SLIDES.length - 1, i)); render(); }
+function cur()        { return SLIDES[T.idx]; }
+function next()       { if (T.idx < SLIDES.length - 1) { T.idx++; render(); } }
+function prev()       { if (T.idx > 0)                  { T.idx--; render(); } }
+function goSlide(i)   { T.idx = Math.max(0, Math.min(SLIDES.length - 1, i)); render(); }
+function jumpPeriod(p){ const i = SLIDES.findIndex(s => s.period === p); if (i >= 0) goSlide(i); }
 
-function jumpPeriod(p) {
-  const i = SLIDES.findIndex(s => s.period === p);
-  if (i >= 0) goSlide(i);
-}
+// ════════════════════════════════════════════════════════════════
+//   QR CODE (pre-generated)
+// ════════════════════════════════════════════════════════════════
 
-// ═══════════════════════════════════════════════════════════
-//                   QR CODE (pre-generated)
-// ═══════════════════════════════════════════════════════════
-
-function generateQR(url) {
+function generateQR() {
   const tmp = document.createElement('div');
-  tmp.style.position = 'absolute';
-  tmp.style.left = '-9999px';
+  tmp.style.cssText = 'position:absolute;left:-9999px;';
   document.body.appendChild(tmp);
   try {
     new QRCode(tmp, {
-      text: url, width: 240, height: 240,
-      colorDark: '#0D1B2A', colorLight: '#FFFFFF',
+      text: STUDENT_URL, width: 240, height: 240,
+      colorDark: '#0F172A', colorLight: '#FFFFFF',
       correctLevel: QRCode.CorrectLevel.M,
     });
     setTimeout(() => {
       const canvas = tmp.querySelector('canvas');
       const img    = tmp.querySelector('img');
-      if (canvas) QR_URL = canvas.toDataURL();
-      else if (img) QR_URL = img.src;
+      if (canvas) QR_DATA_URL = canvas.toDataURL();
+      else if (img) QR_DATA_URL = img.src;
       tmp.remove();
-      // Re-render if QR was needed on the current slide
-      if (cur().type === 'activity') render();
+      render();
     }, 60);
-  } catch (e) {
-    tmp.remove();
-  }
+  } catch (e) { tmp.remove(); }
 }
 
-// ═══════════════════════════════════════════════════════════
-//                   RENDER
-// ═══════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
+//   HELPERS
+// ════════════════════════════════════════════════════════════════
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
 
 function setAccent(color) {
   document.documentElement.style.setProperty('--accent', color);
 }
 
-function esc(s) {
-  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+// Persistent QR (bottom-right floating)
+function qrFloat() {
+  if (!QR_DATA_URL) return '';
+  return `
+    <div class="slide-qr">
+      <div class="slide-qr-label mono">SCAN · 학생 참여</div>
+      <div class="slide-qr-img"><img src="${QR_DATA_URL}" alt="QR"></div>
+      <div class="slide-qr-url">${esc(STUDENT_URL.replace(/^https?:\/\//,''))}</div>
+    </div>`;
 }
 
-// ─── slide renderers ───
+// Embedded QR for activity slides
+function qrEmbed() {
+  const imgHtml = QR_DATA_URL
+    ? `<img src="${QR_DATA_URL}" alt="QR">`
+    : `<div style="width:200px;height:200px;display:flex;align-items:center;justify-content:center;color:#64748B;font-size:0.85rem;background:#F8FAFC;border-radius:10px;">QR 생성 중...</div>`;
+  return `
+    <div class="sc-act-qr">
+      <div class="sc-act-qr-label">📱 지금 스캔하세요</div>
+      <div class="sc-act-qr-img">${imgHtml}</div>
+      <div class="sc-act-qr-url">${esc(STUDENT_URL)}</div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════════════
+//   RENDERERS
+// ════════════════════════════════════════════════════════════════
 
 function rCover(s) {
   return `
-    <div class="s-cover">
-      <div class="cv-kick">${esc(s.kicker)}</div>
-      <h1 class="cv-title">${esc(s.title)}</h1>
-      <div class="cv-sub">${esc(s.sub)}</div>
-    </div>`;
-}
-
-function rIcebreak(s) {
-  return `
-    <div class="s-ice">
-      <div class="ic-head">
-        <h1 class="ic-title">${esc(s.title)}</h1>
-        <p class="ic-sub">${esc(s.sub)}</p>
-      </div>
-      <div class="ic-items">
-        ${s.items.map(it => `
-          <div class="ic-item">
-            <div class="ic-num">${esc(it.num)}</div>
-            <div class="ic-text">${esc(it.text)}</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
+    <div class="sc sc-centered">
+      <div class="sc-kicker">${esc(s.kicker)}</div>
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      <div class="sc-sub">${esc(s.sub)}</div>
+    </div>
+    ${qrFloat()}`;
 }
 
 function rSection(s) {
   return `
-    <div class="s-section">
+    <div class="sc sc-centered">
       <div class="sc-num">${esc(s.num)}</div>
-      <h1 class="sc-title">${esc(s.title)}</h1>
+      <h1 class="sc-h1">${esc(s.title)}</h1>
       <div class="sc-sub">${esc(s.sub)}</div>
-    </div>`;
+    </div>
+    ${qrFloat()}`;
+}
+
+function rIcebreak(s) {
+  return `
+    <div class="sc">
+      <div class="sc-title-center">
+        <h1 class="sc-h1">${esc(s.title)}</h1>
+        <div class="sc-sub" style="margin:0 auto;max-width:700px">${esc(s.sub)}</div>
+      </div>
+      <div class="sc-grid" style="grid-template-columns:1fr;gap:0.85rem;align-content:center;">
+        ${s.items.map(it => `
+          <div class="sc-card ib-card">
+            <div class="ib-num">${esc(it.num)}</div>
+            <div class="ib-text">${esc(it.text)}</div>
+          </div>`).join('')}
+      </div>
+    </div>
+    ${qrFloat()}`;
 }
 
 function rGrid(s) {
+  const subHtml = s.sub ? `<div class="sc-sub" style="margin:0.25rem auto 0;max-width:700px">${esc(s.sub)}</div>` : '';
   return `
-    <div class="s-grid">
-      <h1 class="gr-title">${esc(s.title)}</h1>
-      <div class="gr-cards">
+    <div class="sc">
+      <div class="sc-title-center">
+        <h1 class="sc-h1">${esc(s.title)}</h1>
+        ${subHtml}
+      </div>
+      <div class="sc-grid cols-${s.cols || 3}">
         ${s.items.map(it => `
-          <div class="gr-card" style="--c:${it.color}">
-            <div class="gr-icon">${it.icon}</div>
-            <div class="gr-name">${esc(it.name)}</div>
-            <div class="gr-sub mono">${esc(it.sub)}</div>
+          <div class="sc-card ic-card" style="--c:${it.color}">
+            <div class="ic-icon">${it.icon}</div>
+            <div class="ic-name">${esc(it.name)}</div>
+            ${it.sub  ? `<div class="ic-sub">${esc(it.sub)}</div>` : ''}
+            ${it.desc ? `<div class="ic-desc">${esc(it.desc)}</div>` : ''}
           </div>`).join('')}
       </div>
-    </div>`;
+    </div>
+    ${qrFloat()}`;
 }
 
 function rTheory(s) {
-  const media = s.video
-    ? `<div class="th-media"><iframe src="${esc(s.video)}" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`
+  const hasMedia = !!(s.img || s.video);
+  const mediaHtml = s.video
+    ? `<div class="sc-media"><iframe src="${esc(s.video)}" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`
     : s.img
-    ? `<div class="th-media"><img src="${esc(s.img)}" alt=""></div>`
+    ? `<div class="sc-media"><img src="${esc(s.img)}" alt=""></div>`
     : '';
   const pts = s.points
-    ? `<ul class="th-points">${s.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
+    ? `<ul class="sc-points">${s.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
     : '';
-  return `
-    <div class="s-theory ${s.img || s.video ? '' : 'no-media'}">
-      <div class="th-text">
-        ${s.tag ? `<div class="th-tag" style="color:${s.color};border-color:${s.color}66;background:${s.color}12">${esc(s.tag)}</div>` : ''}
-        <h1 class="th-title">${esc(s.title)}</h1>
-        ${pts}
-        ${s.note ? `<div class="th-note">${esc(s.note)}</div>` : ''}
+  const note = s.note ? `<div class="sc-note">${esc(s.note)}</div>` : '';
+  const tag  = s.tag
+    ? `<div class="sc-meta"><div class="sc-tag" style="color:${s.color};border-color:${s.color}66;background:${s.color}12">${esc(s.tag)}</div></div>`
+    : '';
+
+  if (hasMedia) {
+    return `
+      <div class="sc sc-sided">
+        <div class="sc-left">
+          ${tag}
+          <h1 class="sc-h1">${esc(s.title)}</h1>
+          ${pts}
+          ${note}
+        </div>
+        ${mediaHtml}
       </div>
-      ${media}
-    </div>`;
+      ${qrFloat()}`;
+  }
+  return `
+    <div class="sc">
+      ${tag}
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      ${pts}
+      ${note}
+    </div>
+    ${qrFloat()}`;
 }
 
 function rSteps(s) {
   return `
-    <div class="s-steps">
-      <h1 class="st-title">${esc(s.title)}</h1>
-      <div class="st-list">
-        ${s.steps.map(it => `
-          <div class="st-item">
-            <div class="st-num">${esc(it.num)}</div>
+    <div class="sc">
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      <div style="display:flex;flex-direction:column;gap:0.85rem;flex:1;justify-content:center;padding-bottom:120px;">
+        ${s.steps.map(st => `
+          <div class="sc-card st-card">
+            <div class="st-num">${esc(st.num)}</div>
             <div class="st-body">
-              <div class="st-h">${esc(it.title)}</div>
-              <div class="st-p">${esc(it.body)}</div>
+              <div class="st-h">${esc(st.title)}</div>
+              <div class="st-p">${esc(st.body)}</div>
             </div>
           </div>`).join('')}
       </div>
-    </div>`;
-}
-
-function rActivity(s) {
-  const qrHtml = QR_URL
-    ? `<img src="${QR_URL}" alt="QR">`
-    : `<div class="qr-placeholder">QR 생성 중...</div>`;
-  return `
-    <div class="s-act">
-      <div class="ac-left">
-        <div class="ac-head">
-          <div class="ac-icon">${s.icon}</div>
-          <div class="ac-tag mono">학생 참여</div>
-        </div>
-        <h1 class="ac-title">${esc(s.title)}</h1>
-        <p class="ac-desc">${esc(s.desc)}</p>
-        <div class="ac-rules">
-          ${s.instructions.map((it, i) => `
-            <div class="ac-rule">
-              <div class="ac-ri">${i + 1}</div>
-              <div class="ac-rt">${esc(it)}</div>
-            </div>`).join('')}
-        </div>
-        <div class="ac-hint">💡 ${esc(s.hint)}</div>
-      </div>
-      <div class="ac-right">
-        <div class="ac-qr-card">
-          <div class="ac-qr-label mono">📱 SCAN</div>
-          <div class="ac-qr-box">${qrHtml}</div>
-          <div class="ac-qr-url mono">${esc(location.origin)}</div>
-        </div>
-      </div>
-    </div>`;
-}
-
-function rClosingPeriod(s) {
-  return `
-    <div class="s-cp">
-      <div class="cp-icon">☕</div>
-      <h1 class="cp-title">${esc(s.title)}</h1>
-      <div class="cp-sub">${esc(s.sub)}</div>
-      <div class="cp-body">${esc(s.body)}</div>
-      <div class="cp-meta mono">${esc(s.meta)}</div>
-    </div>`;
+    </div>
+    ${qrFloat()}`;
 }
 
 function rTriage(s) {
   return `
-    <div class="s-tri">
-      <h1 class="tr-title">${esc(s.title)}</h1>
-      <div class="tr-grid">
+    <div class="sc">
+      <div class="sc-title-center">
+        <h1 class="sc-h1">${esc(s.title)}</h1>
+      </div>
+      <div class="sc-grid cols-2">
         ${s.cards.map(c => `
-          <div class="tr-card" style="--c:${c.color}">
+          <div class="sc-card tr-card" style="--c:${c.color}">
             <div class="tr-row">
               <div class="tr-label">${esc(c.label)}</div>
               <div class="tr-sub mono">${esc(c.sub)}</div>
             </div>
             <div class="tr-desc">${esc(c.desc)}</div>
-            <div class="tr-ex mono">예시 · ${esc(c.example)}</div>
+            <div class="tr-ex">예시 · ${esc(c.example)}</div>
           </div>`).join('')}
+      </div>
+    </div>
+    ${qrFloat()}`;
+}
+
+function rActivity(s) {
+  return `
+    <div class="sc-act">
+      <div class="sc-left">
+        <div class="sc-meta"><div class="sc-tag mono">학생 참여 · ACTIVITY</div></div>
+        <div class="sc-icon">${s.icon}</div>
+        <h1 class="sc-h1">${esc(s.title)}</h1>
+        <p class="sc-sub">${esc(s.desc)}</p>
+        <div class="sc-rules">
+          ${s.instructions.map((it, i) => `
+            <div class="sc-rule">
+              <div class="sc-ri">${i + 1}</div>
+              <div class="sc-rt">${esc(it)}</div>
+            </div>`).join('')}
+        </div>
+        <div class="sc-hint">💡 ${esc(s.hint)}</div>
+      </div>
+      <div class="sc-right">
+        ${qrEmbed()}
       </div>
     </div>`;
 }
 
-function rTypes(s) {
+function rBreak(s) {
   return `
-    <div class="s-types">
-      <h1 class="tp-title">${esc(s.title)}</h1>
-      <div class="tp-grid">
-        ${s.types.map(t => `
-          <div class="tp-card" style="--c:${t.color}">
-            <div class="tp-icon">${t.icon}</div>
-            <div class="tp-name">${esc(t.name)}</div>
-            <div class="tp-label mono">${esc(t.label)}</div>
-            <div class="tp-desc">${esc(t.desc)}</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-}
-
-function rQAGrid(s) {
-  return `
-    <div class="s-qa-grid">
-      <div class="qg-head">
-        <h1 class="qg-title">${esc(s.title)}</h1>
-        <p class="qg-sub">${esc(s.sub)}</p>
-      </div>
-      <div class="qg-chips">
-        ${s.items.map(i => `
-          <div class="qg-chip">
-            <div class="qg-icon">${i.icon}</div>
-            <div class="qg-q">${esc(i.q)}</div>
-          </div>`).join('')}
-      </div>
-    </div>`;
+    <div class="sc sc-centered">
+      <div class="sc-icon">${s.icon}</div>
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      <div class="sc-sub" style="color:var(--accent);font-weight:700;">${esc(s.sub)}</div>
+      <div style="font-size:var(--fs-body-lg);color:var(--text);line-height:1.8;white-space:pre-line;max-width:680px;margin-top:1.5rem;font-weight:500;">${esc(s.body)}</div>
+      <div class="mono" style="font-size:var(--fs-sm);color:var(--muted);letter-spacing:0.2em;font-weight:700;margin-top:2rem;">${esc(s.meta)}</div>
+    </div>
+    ${qrFloat()}`;
 }
 
 function rQAOpen(s) {
   return `
-    <div class="s-qa-open">
-      <div class="qo-mark">❓</div>
-      <h1 class="qo-title">${esc(s.title)}</h1>
-      <div class="qo-sub">${esc(s.sub)}</div>
-      <div class="qo-tip">${esc(s.tip)}</div>
-    </div>`;
+    <div class="sc sc-centered">
+      <div class="sc-icon" style="font-size:clamp(4rem,6vw,5.5rem);">${s.icon}</div>
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      <div class="sc-sub" style="color:var(--accent);font-weight:700;">${esc(s.sub)}</div>
+      <div style="font-size:var(--fs-body-lg);color:var(--text);line-height:1.9;white-space:pre-line;max-width:680px;background:rgba(255,255,255,0.85);padding:1.5rem 2rem;border-radius:var(--r-md);border-left:5px solid var(--accent);font-weight:500;margin-top:1rem;">${esc(s.tip)}</div>
+    </div>
+    ${qrFloat()}`;
 }
 
 function rClosing(s) {
   return `
-    <div class="s-closing">
-      <div class="cl-heart">💙</div>
-      <h1 class="cl-title">${esc(s.title)}</h1>
-      <div class="cl-sub">${esc(s.sub)}</div>
-      <div class="cl-meta mono">${esc(s.meta)}</div>
-    </div>`;
+    <div class="sc sc-centered">
+      <div class="sc-icon">${s.icon}</div>
+      <h1 class="sc-h1">${esc(s.title)}</h1>
+      <div class="sc-sub">${esc(s.sub)}</div>
+      <div class="mono" style="font-size:var(--fs-sm);color:rgba(255,255,255,0.75);letter-spacing:0.1em;font-weight:700;margin-top:2rem;">${esc(s.meta)}</div>
+    </div>
+    ${qrFloat()}`;
 }
 
 const RENDERERS = {
-  cover:            rCover,
-  icebreak:         rIcebreak,
-  section:          rSection,
-  grid:             rGrid,
-  theory:           rTheory,
-  steps:            rSteps,
-  activity:         rActivity,
-  'closing-period': rClosingPeriod,
-  'triage-cards':   rTriage,
-  'types-grid':     rTypes,
-  'qa-grid':        rQAGrid,
-  'qa-open':        rQAOpen,
-  closing:          rClosing,
+  cover:     rCover,
+  section:   rSection,
+  icebreak:  rIcebreak,
+  grid:      rGrid,
+  theory:    rTheory,
+  steps:     rSteps,
+  triage:    rTriage,
+  activity:  rActivity,
+  break:     rBreak,
+  'qa-open': rQAOpen,
+  closing:   rClosing,
 };
+
+// Map slide type → wrapper class applied to #slideFrame (for CSS bg)
+function wrapperClass(s) {
+  switch (s.type) {
+    case 'cover':    return 'slide-cover';
+    case 'section':  return 'slide-section slide-dark';
+    case 'activity': return 'slide-activity';
+    case 'break':    return 'slide-light-gradient';
+    case 'qa-open':  return 'slide-light-gradient';
+    case 'closing':  return 'slide-closing slide-dark';
+    default:         return '';
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+//   RENDER
+// ════════════════════════════════════════════════════════════════
 
 function render() {
   const s = cur();
   setAccent(s.color || '#0891B2');
 
+  // Wrapper class on slideFrame (used by CSS for backgrounds)
+  document.getElementById('slideFrame').className = `slide-frame ${wrapperClass(s)}`;
+
+  // Render content with fade
   const slideEl = document.getElementById('slide');
-  slideEl.className = `slide slide-${s.type} period-${s.period}`;
-
   const fn = RENDERERS[s.type] || rTheory;
-
-  // Fade transition
   slideEl.classList.add('fading');
   setTimeout(() => {
     slideEl.innerHTML = fn(s);
     slideEl.classList.remove('fading');
   }, 150);
 
-  // Top bar
-  const periodBtn1 = document.getElementById('p1Btn');
-  const periodBtn2 = document.getElementById('p2Btn');
-  if (periodBtn1) periodBtn1.className = 'period-pill' + (s.period === 1 ? ' active' : '');
-  if (periodBtn2) periodBtn2.className = 'period-pill' + (s.period === 2 ? ' active' : '');
+  // Top bar period indicators
+  document.getElementById('p1Btn').className = 'period-pill' + (s.period === 1 ? ' active' : '');
+  document.getElementById('p2Btn').className = 'period-pill' + (s.period === 2 ? ' active' : '');
 
   // Counter
   document.getElementById('slideCounter').textContent = `${T.idx + 1} / ${SLIDES.length}`;
 
-  // Progress
-  const prog = document.getElementById('progBar');
-  prog.style.width = ((T.idx + 1) / SLIDES.length * 100) + '%';
+  // Progress bar
+  document.getElementById('progBar').style.width = ((T.idx + 1) / SLIDES.length * 100) + '%';
 
   // Nav buttons
   document.getElementById('prevBtn').disabled = T.idx === 0;
   document.getElementById('nextBtn').disabled = T.idx === SLIDES.length - 1;
 }
 
-// ═══════════════════════════════════════════════════════════
-//                   KEYBOARD
-// ═══════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
+//   KEYBOARD
+// ════════════════════════════════════════════════════════════════
 
 document.addEventListener('keydown', e => {
   if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); next(); }
   if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); prev(); }
-  if (e.key === 'Home')                                                 { goSlide(0); }
-  if (e.key === 'End')                                                  { goSlide(SLIDES.length - 1); }
+  if (e.key === 'Home') { goSlide(0); }
+  if (e.key === 'End')  { goSlide(SLIDES.length - 1); }
 });
 
-// ═══════════════════════════════════════════════════════════
-//                   INIT
-// ═══════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════════════════════
+//   INIT
+// ════════════════════════════════════════════════════════════════
 
 (function() {
-  generateQR(window.location.origin + '/');
+  generateQR();
   render();
 })();
