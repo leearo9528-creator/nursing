@@ -1,401 +1,603 @@
 'use strict';
 
-// ==================== LESSON PLAN ====================
+// ═══════════════════════════════════════════════════════════
+//                  SLIDE DECK — 수업 자료
+// ═══════════════════════════════════════════════════════════
 
-const LESSON = [
-  {
-    period:1, step:1, duration:8,
-    label:"간호사의 다양한 근무지", tag:"이론", color:"#0891B2",
-    slides:[
-      {
-        cover: true,
-        title:"간호사의\n세계로",
-        kicker:"2025 간호사 진로 특강",
-        body:"1교시 · 간호사의 다양한 근무지와 되는 길",
-      },
-      {
-        icebreak: true,
-        title:"아이스브레이킹 ❄️",
-        kicker:"수업 시작 전",
-        body:"Q1. 지금 내 옆에 앉은 사람 이름을 30초 안에 외워보세요!\n\nQ2. '간호사' 하면 떠오르는 단어를 하나씩 외쳐보세요.\n\nQ3. 내 주변에 간호사가 있는 사람? 손 들어보세요 🙋",
-      },
-      {
-        title:"간호사는 병원만이\n아닙니다",
-        body:"오늘 배울 6가지 근무지를 소개합니다.\n응급실 · 중환자실 · 수술실 · 보건교사 · 소방 구급 · 항공 간호사",
-        img:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"🚨 응급실 (ER)",
-        body:"외상·뇌졸중 등 생명 위협 상황에 즉각 대응합니다.\n빠른 판단력과 강인한 체력이 핵심입니다.",
-        img:"https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"🔴 중환자실 (ICU)",
-        body:"24시간 집중 모니터링. 가장 위중한 환자를 케어합니다.\n집중력과 꼼꼼함이 생명입니다.\n\n▶ 아래 브이로그에서 실제 하루 일과를 확인하세요.",
-        video:"https://www.youtube.com/embed/Nxgdmn7vTsA"
-      },
-      {
-        title:"⚕️ 수술실 (OR)",
-        body:"집도의의 파트너. 수술 전·중·후 전 과정을 담당합니다.\n정확성과 무균 원칙이 절대적입니다.",
-        img:"https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"🏫 보건교사",
-        body:"학교 보건실에서 학생의 건강을 지킵니다.\n보건교사 자격증을 가진 간호사입니다.",
-        img:"https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"🚒 소방 구급대",
-        body:"119 구급차에서 현장 응급처치를 담당합니다.\n구급대원으로서 가장 먼저 환자를 만납니다.",
-        img:"https://images.unsplash.com/photo-1543333995-3f5e3ef16b6c?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"✈️ 항공 간호사",
-        body:"닥터헬기·의료 전용기에서 중증 환자를 이송·치료합니다.\n국내외 다양한 취업 경로가 있습니다.",
-        img:"https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=700&q=80"
-      },
+const P1_COLOR = '#0891B2';  // 1교시 — 티얼
+const P2_COLOR = '#E63946';  // 2교시 — 코랄
+
+const SLIDES = [
+  // ─────────────────────────────────────────────
+  // 1 교 시  (45분) — 간호사의 세계
+  // ─────────────────────────────────────────────
+
+  { type:'cover', period:1, color:P1_COLOR,
+    kicker:'2025 간호사 진로 특강',
+    title:'간호사의\n세계로',
+    sub:'1교시 · 간호사의 다양한 근무지와 되는 길 (45분)',
+  },
+
+  { type:'icebreak', period:1,
+    title:'아이스브레이킹 ❄️',
+    sub:'수업을 시작하기 전에, 분위기부터 풀어봅니다',
+    items:[
+      { num:'01', text:'옆자리 친구 이름을 30초 안에 외워보세요!' },
+      { num:'02', text:'"간호사" 하면 떠오르는 단어를 하나씩 외쳐보세요.' },
+      { num:'03', text:'주변에 간호사가 있는 친구, 손을 들어보세요 🙋' },
     ]
   },
-  {
-    period:1, step:2, duration:7,
-    label:"간호사 되는 길 5단계", tag:"이론", color:"#7C3AED",
-    slides:[
-      {
-        title:"간호사가 되는\n5단계",
-        body:"중·고등학교 → 간호학과 → 임상 실습 → 국가고시 → 취업",
-        img:"https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"01 중·고등학교",
-        body:"이과 계열 과목(생물·화학) 집중.\n내신 관리가 간호학과 입학의 핵심입니다."
-      },
-      {
-        title:"02 간호학과 입학",
-        body:"4년제 간호학과 또는 3년제 간호전문대.\n경쟁률이 높고 수능 성적이 중요합니다.",
-        img:"https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"03 임상 실습",
-        body:"병원에서 직접 실습. 가장 치열하고 성장하는 시간.\n보호자처럼 환자 곁에 있는 법을 배웁니다.",
-        img:"https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"04 국가고시 합격",
-        body:"연 1회(1월) 시행. 합격률 약 90~95%.\n취득 즉시 간호사 면허가 발급됩니다!",
-        img:"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"05 취업 & 전문화",
-        body:"병원 취업 후 전문간호사·연구·해외 진출 등 무한 확장.\n경력이 쌓일수록 가치가 높아지는 직업입니다.",
-        img:"https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=700&q=80"
-      },
+
+  { type:'section', period:1, color:P1_COLOR,
+    num:'PART 01',
+    title:'간호사의\n다양한 근무지',
+    sub:'간호사는 병원만이 아닙니다'
+  },
+
+  { type:'grid', period:1, color:P1_COLOR,
+    title:'오늘 알아볼 6가지 근무지',
+    items:[
+      { icon:'🚨', name:'응급실',      sub:'ER',     color:'#E63946' },
+      { icon:'🔴', name:'중환자실',    sub:'ICU',    color:'#0891B2' },
+      { icon:'⚕️', name:'수술실',      sub:'OR',     color:'#7C3AED' },
+      { icon:'🏫', name:'보건교사',    sub:'SCHOOL', color:'#16A34A' },
+      { icon:'🚒', name:'소방 구급대', sub:'119',    color:'#D97706' },
+      { icon:'✈️', name:'항공 간호사', sub:'FLIGHT', color:'#F97316' },
     ]
   },
-  {
-    period:1, step:3, duration:15,
-    label:"OX 퀴즈", tag:"🎮 게임", color:"#E63946",
-    slides:[
-      {
-        title:"OX 퀴즈\n10문제",
-        body:"학생들이 핸드폰으로 직접 참여합니다.\n정답: +10pt · 3연속 정답: 보너스 +5pt\n\n선생님은 문제를 큰 소리로 읽어주세요.",
-        img:"https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"진행 팁",
-        body:"• 학생들이 O/X 버튼을 누른 뒤 정답 공개\n• '왜 그렇게 생각했나요?' 발문 활용\n• 틀린 학생도 기죽지 않도록 격려\n\n총 15분 내 완료 목표"
-      },
+
+  { type:'theory', period:1, tag:'응급실', color:'#E63946',
+    title:'🚨 응급실 (ER)',
+    points:[
+      '외상·뇌졸중·심정지 등 생명 위협 상황에 즉각 대응',
+      '빠른 판단력과 강인한 체력이 필수',
+      '24시간 교대 근무, 환자 초기 평가·안정화 담당',
+    ],
+    img:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=900&q=80'
+  },
+
+  { type:'theory', period:1, tag:'중환자실', color:'#0891B2',
+    title:'🔴 중환자실 (ICU)',
+    points:[
+      '24시간 집중 모니터링, 가장 위중한 환자 케어',
+      '집중력과 꼼꼼함이 생명',
+      '인공호흡기·심전도 등 복잡한 장비를 다룸',
+    ],
+    video:'https://www.youtube.com/embed/Nxgdmn7vTsA',
+    note:'▶ 현직 ICU 간호사의 실제 하루를 영상으로 확인하세요.'
+  },
+
+  { type:'theory', period:1, tag:'수술실', color:'#7C3AED',
+    title:'⚕️ 수술실 (OR)',
+    points:[
+      '집도의의 파트너, 수술 전·중·후 전 과정 담당',
+      '무균 원칙이 절대적',
+      '정밀한 기구 관리와 기록 작성',
+    ],
+    img:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=900&q=80'
+  },
+
+  { type:'theory', period:1, tag:'보건교사', color:'#16A34A',
+    title:'🏫 보건교사',
+    points:[
+      '학교 보건실에서 학생의 건강을 지킴',
+      '건강 교육 수업을 담당',
+      '간호사 면허 + 보건교사 자격증 필요',
+    ],
+    img:'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=80'
+  },
+
+  { type:'theory', period:1, tag:'소방 구급', color:'#D97706',
+    title:'🚒 소방 구급대',
+    points:[
+      '119 구급차에서 현장 응급처치',
+      '가장 먼저 환자를 만나는 사람',
+      '소방 공무원 신분, 응급구조사와 협력',
+    ],
+    img:'https://images.unsplash.com/photo-1543333995-3f5e3ef16b6c?auto=format&fit=crop&w=900&q=80'
+  },
+
+  { type:'theory', period:1, tag:'항공 간호', color:'#F97316',
+    title:'✈️ 항공 간호사',
+    points:[
+      '닥터헬기·의료 전용기에서 중증 환자 이송·치료',
+      '좁은 공간·고도 변화 속 처치 능력 필요',
+      '국내·해외 모두 진출 가능',
+    ],
+    img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=900&q=80'
+  },
+
+  { type:'section', period:1, color:'#7C3AED',
+    num:'PART 02',
+    title:'간호사\n되는 길',
+    sub:'중학생부터 간호사까지 5단계'
+  },
+
+  { type:'steps', period:1, color:'#7C3AED',
+    title:'간호사 되는 길 5단계',
+    steps:[
+      { num:'01', title:'중·고등학교',     body:'이과 계열 과목 집중(생물·화학). 내신 관리가 간호학과 입학의 첫 단추입니다.' },
+      { num:'02', title:'간호학과 입학',   body:'4년제 간호학과 또는 3년제 간호전문대. 경쟁률이 높고 수능 성적이 중요합니다.' },
+      { num:'03', title:'임상 실습',       body:'병원에서 직접 실습. 가장 치열하고 가장 많이 성장하는 시간입니다.' },
+      { num:'04', title:'국가고시 합격',   body:'연 1회(1월) 시행. 합격률 약 90~95%. 즉시 면허가 발급됩니다!' },
+      { num:'05', title:'취업 & 전문화',   body:'병원 취업 → 전문간호사 → 연구 → 해외 진출까지 무한 확장.' },
     ]
   },
-  {
-    period:1, step:4, duration:15,
-    label:"상황극 — 환자와의 대화", tag:"🎭 활동", color:"#D97706",
-    slides:[
-      {
-        title:"상황극\n4장면",
-        body:"학생들이 간호사 역할로 대화를 선택합니다.\n공감 점수(0~5)가 점수에 반영됩니다.\n\n각 장면마다 왜 그 답이 좋은지 함께 이야기해 보세요.",
-        img:"https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"SCENE 01\n엄마를 찾는 아이",
-        body:"7세 여자아이가 응급실에서 울고 있습니다.\n\n핵심: 감정을 먼저 인정하고 이름을 물어 연결감을 만드세요."
-      },
-      {
-        title:"SCENE 02\n말 없는 청소년",
-        body:"14세 남자아이, 온몸에 멍, 말하지 않음.\n\n핵심: 강요 없이 안전감을 먼저. '말하기 싫으면 안 해도 돼.'"
-      },
-      {
-        title:"SCENE 03\n통증 호소하는 어르신",
-        body:"75세 할아버지, 어디가 아픈지 정확히 말 못 하심.\n\n핵심: 비언어적 소통(손짓)을 활용하세요."
-      },
-      {
-        title:"SCENE 04\n수술 전날 밤",
-        body:"40대 여성, '너무 무서워요'.\n\n핵심: 감정을 축소하지 말고 정상화하세요.\n'수술 전날은 다들 그래요.'"
-      },
+
+  // ─── 학생 참여 : OX 퀴즈 ───
+  { type:'activity', period:1, act:'ox', color:'#E63946',
+    icon:'🎯',
+    title:'OX 퀴즈 게임',
+    desc:'간호사에 대한 상식, 정말 알고 있나요?',
+    instructions:[
+      '폰을 꺼내 오른쪽 QR 코드를 스캔하세요',
+      '선생님이 문제를 읽어주면 O 또는 X를 누르세요',
+      '정답 +10pt · 3연속 정답 보너스 +5pt',
+    ],
+    hint:'총 10문제 · 예상 소요 15분'
+  },
+
+  // ─── 학생 참여 : 상황극 ───
+  { type:'activity', period:1, act:'sit', color:'#D97706',
+    icon:'🎭',
+    title:'상황극 — 환자와의 대화',
+    desc:'내가 간호사라면? 4가지 장면에서 대답을 골라보세요.',
+    instructions:[
+      '학생 화면 상단 "상황극" 탭으로 이동',
+      '각 장면에서 네 가지 선택지 중 하나 선택',
+      '공감 점수(0~5점)가 점수로 반영됩니다',
+    ],
+    hint:'총 4장면 · 예상 소요 15분'
+  },
+
+  { type:'closing-period', period:1, color:P1_COLOR,
+    title:'1교시 마무리',
+    sub:'잠시 쉬어갑니다',
+    body:'다음 시간엔 실제 재난 현장에서 간호사가 하는\n"생명을 살리는 판단"을 배웁니다.',
+    meta:'— 10분 휴식 —'
+  },
+
+  // ─────────────────────────────────────────────
+  // 2 교 시  (45분) — 생명을 살리는 판단
+  // ─────────────────────────────────────────────
+
+  { type:'cover', period:2, color:P2_COLOR,
+    kicker:'2025 간호사 진로 특강',
+    title:'생명을 살리는\n판단',
+    sub:'2교시 · 트리아지 · 나의 적성 · Q&A (45분)',
+  },
+
+  { type:'section', period:2, color:P2_COLOR,
+    num:'PART 03',
+    title:'트리아지\n(Triage)',
+    sub:'재난 현장에서 한정된 자원으로 최대한 많은 생명을 살리는 법'
+  },
+
+  { type:'theory', period:2, tag:'개념', color:P2_COLOR,
+    title:'트리아지란?',
+    points:[
+      '대규모 재난 현장에서 환자를 4색으로 분류하는 시스템',
+      '간호사의 판단 하나가 생사를 가름',
+      '완벽한 치료 < 최대 다수의 생존',
+    ],
+    img:'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80'
+  },
+
+  { type:'triage-cards', period:2, color:P2_COLOR,
+    title:'4색 분류 체계',
+    cards:[
+      { color:'#E63946', label:'RED',    sub:'즉시',   desc:'생명 위협. 즉각 처치하지 않으면 사망.', example:'의식 없는 외상, 심근경색 의심' },
+      { color:'#D97706', label:'YELLOW', sub:'긴급',   desc:'심각하지만 30분 내 처치 가능.',           example:'골절, 중등도 화상' },
+      { color:'#16A34A', label:'GREEN',  sub:'비응급', desc:'경상. 순서를 기다려도 생명 지장 없음.',   example:'가벼운 타박상, 단순 염좌' },
+      { color:'#374151', label:'BLACK',  sub:'지연',   desc:'소생 불가능. 제한 자원 하 처치 불가.',    example:'심폐정지 + 소생 불가 징후' },
     ]
   },
-  {
-    period:2, step:1, duration:8,
-    label:"트리아지 이론", tag:"이론", color:"#0891B2",
-    slides:[
-      {
-        title:"트리아지\n(Triage)",
-        body:"대규모 재난 현장에서 한정된 의료 자원으로\n최대한 많은 생명을 살리기 위한 환자 분류 시스템입니다.",
-        img:"https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"🔴 RED — 즉시",
-        body:"생명 위협. 즉각 처치하지 않으면 사망.\n예: 의식 없는 외상 환자, 심근경색 의심"
-      },
-      {
-        title:"🟡 YELLOW — 긴급",
-        body:"심각하지만 30분 내 처치 가능. 대기 가능.\n예: 골절, 중등도 화상"
-      },
-      {
-        title:"🟢 GREEN — 비응급",
-        body:"경상. 순서를 기다려도 생명에 지장 없음.\n예: 가벼운 타박상, 단순 염좌"
-      },
-      {
-        title:"⬛ BLACK — 지연",
-        body:"소생 불가능. 제한된 자원 하에 처치 불가.\n예: 심폐정지 + 소생 불가 징후\n\n※ 가장 어려운 판단입니다."
-      },
+
+  // ─── 학생 참여 : 트리아지 ───
+  { type:'activity', period:2, act:'tri', color:P2_COLOR,
+    icon:'🚑',
+    title:'트리아지 게임',
+    desc:'12개의 실제 재난 시나리오를 직접 분류해보세요.',
+    instructions:[
+      '학생 화면 상단 "트리아지" 탭 클릭',
+      '각 시나리오를 RED / YELLOW / GREEN / BLACK으로 분류',
+      '정답 +15pt',
+    ],
+    hint:'총 12 케이스 · 예상 소요 20분 · 이 수업에서 가장 어려운 파트!'
+  },
+
+  { type:'section', period:2, color:'#7C3AED',
+    num:'PART 04',
+    title:'나의 간호사\n적성 유형은?',
+    sub:'5가지 유형 중 나에게 맞는 타입을 찾아봅니다'
+  },
+
+  { type:'types-grid', period:2, color:'#7C3AED',
+    title:'5가지 간호사 유형',
+    types:[
+      { icon:'🚨', name:'ER FIGHTER',       label:'응급실형',    color:'#E63946', desc:'위기 속에서 빛나는 타입' },
+      { icon:'🛡️', name:'ICU GUARDIAN',     label:'중환자실형',  color:'#0891B2', desc:'24시간 지키는 수호자' },
+      { icon:'⚕️', name:'OR PERFECTIONIST', label:'수술실형',    color:'#7C3AED', desc:'완벽을 추구하는 전문가' },
+      { icon:'🌿', name:'COMMUNITY HEALER', label:'보건교사형',  color:'#16A34A', desc:'지역사회를 치유하는 교육자' },
+      { icon:'🔬', name:'SCIENCE MIND',     label:'연구형',      color:'#D97706', desc:'지식으로 발전시키는 탐구자' },
     ]
   },
-  {
-    period:2, step:2, duration:20,
-    label:"트리아지 게임 12 시나리오", tag:"🎮 게임", color:"#E63946",
-    slides:[
-      {
-        title:"트리아지 게임",
-        body:"12개 시나리오를 RED·YELLOW·GREEN·BLACK으로 분류합니다.\n정답: +15pt\n\n총 20분 — 각 케이스마다 정답 공개 후 이유를 설명해 주세요.",
-        img:"https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"진행 팁",
-        body:"• 학생이 선택 후 잠시 기다렸다가 정답 공개\n• '왜 RED라고 생각했나요?' 발문 활용\n• 틀린 이유보다 생각 과정을 칭찬하세요\n• 어려운 케이스(BLACK)는 충분히 설명해 주세요"
-      },
+
+  // ─── 학생 참여 : 적성 테스트 ───
+  { type:'activity', period:2, act:'apt', color:'#7C3AED',
+    icon:'🧭',
+    title:'나의 적성 테스트',
+    desc:'6개의 질문으로 나에게 맞는 유형을 찾아봅니다.',
+    instructions:[
+      '학생 화면 상단 "적성테스트" 탭 클릭',
+      '6개 질문에 솔직하게 답해 주세요',
+      '결과에 나오는 "지금부터 해볼 수 있는 것" 꼭 확인!',
+    ],
+    hint:'총 6문항 · 예상 소요 10분 · 결과를 옆 친구와 비교해 보세요'
+  },
+
+  { type:'section', period:2, color:'#0891B2',
+    num:'PART 05',
+    title:'질문 시간',
+    sub:'궁금한 것, 무엇이든 물어보세요'
+  },
+
+  { type:'qa-grid', period:2, color:'#0891B2',
+    title:'친구들이 많이 물어보는 것들',
+    sub:'이 중 궁금한 게 있으면 바로 손 드세요',
+    items:[
+      { icon:'💰', q:'연봉 얼마?' },
+      { icon:'👨', q:'남자도 가능?' },
+      { icon:'🩸', q:'피 무서워요' },
+      { icon:'📚', q:'공부 얼마나?' },
+      { icon:'🌙', q:'야간 근무?' },
+      { icon:'💼', q:'결혼 후에도?' },
+      { icon:'⚠️', q:'실수하면?' },
+      { icon:'🌏', q:'해외 취업?' },
     ]
   },
-  {
-    period:2, step:3, duration:10,
-    label:"나의 적성 테스트", tag:"🧭 테스트", color:"#7C3AED",
-    slides:[
-      {
-        title:"적성 테스트\n6문항",
-        body:"5가지 간호사 타입 중 나에게 맞는 유형을 찾습니다.\n\nER FIGHTER · ICU GUARDIAN · OR PERFECTIONIST\nCOMMUNITY HEALER · SCIENCE MIND",
-        img:"https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80"
-      },
-      {
-        title:"결과 공유",
-        body:"테스트 완료 후 옆 친구와 결과를 비교해 보세요.\n같은 질문에도 다른 답이 나올 수 있습니다.\n\n'이 유형이 맞는 것 같아요?' 발문 활용"
-      },
-    ]
+
+  { type:'qa-open', period:2, color:'#0891B2',
+    title:'자유 질문 시간',
+    sub:'지금이 기회입니다',
+    tip:'아직 대답 못 들은 질문 있나요?\n\n손을 들고 자유롭게 물어보세요.\n이 직업의 진짜 이야기를 들려드립니다.'
   },
-  {
-    period:2, step:4, duration:7,
-    label:"Q&A + 최종 랭크", tag:"Q&A", color:"#D97706",
-    slides:[
-      {
-        title:"Q&A\n10문항",
-        body:"학생들이 진짜 궁금해하는 질문 10개입니다.\n앱에서 눌러서 확인할 수 있습니다.\n\n추가 질문이 있으면 자유롭게 받아주세요."
-      },
-      {
-        title:"최종 랭크 공개",
-        body:"🦸 NURSE-AVENGER  300pt+\n💉 SPECIALIST      220pt+\n🩺 TRAINEE         140pt+\n🩹 ROOKIE           0pt+\n\n'내 랭크 공유하기' 버튼으로 결과를 저장하세요!"
-      },
-      {
-        title:"마무리 메시지",
-        body:"간호사는 기술이 아니라 사람을 보는 직업입니다.\n오늘 체험한 판단과 공감이 바로 간호의 핵심입니다.\n\n오늘 수업에 참여해 주셔서 감사합니다! 💙",
-        img:"https://images.unsplash.com/photo-1582560475093-ba66accbc424?auto=format&fit=crop&w=700&q=80"
-      },
-    ]
+
+  { type:'closing', period:2, color:P2_COLOR,
+    title:'간호사는\n기술이 아니라\n사람을 보는 직업입니다',
+    sub:'오늘 체험한 판단과 공감이, 바로 간호의 핵심입니다.',
+    meta:'오늘 수업에 참여해 주셔서 감사합니다 💙'
   },
 ];
 
-// ==================== STATE ====================
+// ═══════════════════════════════════════════════════════════
+//                   STATE + NAV
+// ═══════════════════════════════════════════════════════════
 
-let T = { lessonIdx:0, slideIdx:0, sidebarOpen:true };
+let T = { idx: 0 };
+let QR_URL = '';
 
-function currentLesson() { return LESSON[T.lessonIdx]; }
-function currentSlide()  { return currentLesson().slides[T.slideIdx]; }
+function cur()       { return SLIDES[T.idx]; }
+function next()      { if (T.idx < SLIDES.length - 1) { T.idx++; render(); } }
+function prev()      { if (T.idx > 0)                  { T.idx--; render(); } }
+function goSlide(i)  { T.idx = Math.max(0, Math.min(SLIDES.length - 1, i)); render(); }
 
-function nextSlide() {
-  const lesson = currentLesson();
-  if (T.slideIdx < lesson.slides.length - 1) {
-    T.slideIdx++;
-  } else if (T.lessonIdx < LESSON.length - 1) {
-    T.lessonIdx++;
-    T.slideIdx = 0;
+function jumpPeriod(p) {
+  const i = SLIDES.findIndex(s => s.period === p);
+  if (i >= 0) goSlide(i);
+}
+
+// ═══════════════════════════════════════════════════════════
+//                   QR CODE (pre-generated)
+// ═══════════════════════════════════════════════════════════
+
+function generateQR(url) {
+  const tmp = document.createElement('div');
+  tmp.style.position = 'absolute';
+  tmp.style.left = '-9999px';
+  document.body.appendChild(tmp);
+  try {
+    new QRCode(tmp, {
+      text: url, width: 240, height: 240,
+      colorDark: '#0D1B2A', colorLight: '#FFFFFF',
+      correctLevel: QRCode.CorrectLevel.M,
+    });
+    setTimeout(() => {
+      const canvas = tmp.querySelector('canvas');
+      const img    = tmp.querySelector('img');
+      if (canvas) QR_URL = canvas.toDataURL();
+      else if (img) QR_URL = img.src;
+      tmp.remove();
+      // Re-render if QR was needed on the current slide
+      if (cur().type === 'activity') render();
+    }, 60);
+  } catch (e) {
+    tmp.remove();
   }
-  render();
 }
 
-function prevSlide() {
-  if (T.slideIdx > 0) {
-    T.slideIdx--;
-  } else if (T.lessonIdx > 0) {
-    T.lessonIdx--;
-    T.slideIdx = LESSON[T.lessonIdx].slides.length - 1;
-  }
-  render();
-}
-
-function goToLesson(idx) {
-  T.lessonIdx = idx;
-  T.slideIdx  = 0;
-  render();
-}
-
-function toggleSidebar() {
-  T.sidebarOpen = !T.sidebarOpen;
-  const layout = document.getElementById('layout');
-  const btn    = document.getElementById('sidebarToggle');
-  if (layout) layout.classList.toggle('sidebar-collapsed', !T.sidebarOpen);
-  if (btn)    btn.textContent = T.sidebarOpen ? '✕' : '☰';
-}
-
-// ==================== RENDER ====================
+// ═══════════════════════════════════════════════════════════
+//                   RENDER
+// ═══════════════════════════════════════════════════════════
 
 function setAccent(color) {
   document.documentElement.style.setProperty('--accent', color);
 }
 
+function esc(s) {
+  return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// ─── slide renderers ───
+
+function rCover(s) {
+  return `
+    <div class="s-cover">
+      <div class="cv-kick">${esc(s.kicker)}</div>
+      <h1 class="cv-title">${esc(s.title)}</h1>
+      <div class="cv-sub">${esc(s.sub)}</div>
+    </div>`;
+}
+
+function rIcebreak(s) {
+  return `
+    <div class="s-ice">
+      <div class="ic-head">
+        <h1 class="ic-title">${esc(s.title)}</h1>
+        <p class="ic-sub">${esc(s.sub)}</p>
+      </div>
+      <div class="ic-items">
+        ${s.items.map(it => `
+          <div class="ic-item">
+            <div class="ic-num">${esc(it.num)}</div>
+            <div class="ic-text">${esc(it.text)}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function rSection(s) {
+  return `
+    <div class="s-section">
+      <div class="sc-num">${esc(s.num)}</div>
+      <h1 class="sc-title">${esc(s.title)}</h1>
+      <div class="sc-sub">${esc(s.sub)}</div>
+    </div>`;
+}
+
+function rGrid(s) {
+  return `
+    <div class="s-grid">
+      <h1 class="gr-title">${esc(s.title)}</h1>
+      <div class="gr-cards">
+        ${s.items.map(it => `
+          <div class="gr-card" style="--c:${it.color}">
+            <div class="gr-icon">${it.icon}</div>
+            <div class="gr-name">${esc(it.name)}</div>
+            <div class="gr-sub mono">${esc(it.sub)}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function rTheory(s) {
+  const media = s.video
+    ? `<div class="th-media"><iframe src="${esc(s.video)}" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>`
+    : s.img
+    ? `<div class="th-media"><img src="${esc(s.img)}" alt=""></div>`
+    : '';
+  const pts = s.points
+    ? `<ul class="th-points">${s.points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>`
+    : '';
+  return `
+    <div class="s-theory ${s.img || s.video ? '' : 'no-media'}">
+      <div class="th-text">
+        ${s.tag ? `<div class="th-tag" style="color:${s.color};border-color:${s.color}66;background:${s.color}12">${esc(s.tag)}</div>` : ''}
+        <h1 class="th-title">${esc(s.title)}</h1>
+        ${pts}
+        ${s.note ? `<div class="th-note">${esc(s.note)}</div>` : ''}
+      </div>
+      ${media}
+    </div>`;
+}
+
+function rSteps(s) {
+  return `
+    <div class="s-steps">
+      <h1 class="st-title">${esc(s.title)}</h1>
+      <div class="st-list">
+        ${s.steps.map(it => `
+          <div class="st-item">
+            <div class="st-num">${esc(it.num)}</div>
+            <div class="st-body">
+              <div class="st-h">${esc(it.title)}</div>
+              <div class="st-p">${esc(it.body)}</div>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function rActivity(s) {
+  const qrHtml = QR_URL
+    ? `<img src="${QR_URL}" alt="QR">`
+    : `<div class="qr-placeholder">QR 생성 중...</div>`;
+  return `
+    <div class="s-act">
+      <div class="ac-left">
+        <div class="ac-head">
+          <div class="ac-icon">${s.icon}</div>
+          <div class="ac-tag mono">학생 참여</div>
+        </div>
+        <h1 class="ac-title">${esc(s.title)}</h1>
+        <p class="ac-desc">${esc(s.desc)}</p>
+        <div class="ac-rules">
+          ${s.instructions.map((it, i) => `
+            <div class="ac-rule">
+              <div class="ac-ri">${i + 1}</div>
+              <div class="ac-rt">${esc(it)}</div>
+            </div>`).join('')}
+        </div>
+        <div class="ac-hint">💡 ${esc(s.hint)}</div>
+      </div>
+      <div class="ac-right">
+        <div class="ac-qr-card">
+          <div class="ac-qr-label mono">📱 SCAN</div>
+          <div class="ac-qr-box">${qrHtml}</div>
+          <div class="ac-qr-url mono">${esc(location.origin)}</div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function rClosingPeriod(s) {
+  return `
+    <div class="s-cp">
+      <div class="cp-icon">☕</div>
+      <h1 class="cp-title">${esc(s.title)}</h1>
+      <div class="cp-sub">${esc(s.sub)}</div>
+      <div class="cp-body">${esc(s.body)}</div>
+      <div class="cp-meta mono">${esc(s.meta)}</div>
+    </div>`;
+}
+
+function rTriage(s) {
+  return `
+    <div class="s-tri">
+      <h1 class="tr-title">${esc(s.title)}</h1>
+      <div class="tr-grid">
+        ${s.cards.map(c => `
+          <div class="tr-card" style="--c:${c.color}">
+            <div class="tr-row">
+              <div class="tr-label">${esc(c.label)}</div>
+              <div class="tr-sub mono">${esc(c.sub)}</div>
+            </div>
+            <div class="tr-desc">${esc(c.desc)}</div>
+            <div class="tr-ex mono">예시 · ${esc(c.example)}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function rTypes(s) {
+  return `
+    <div class="s-types">
+      <h1 class="tp-title">${esc(s.title)}</h1>
+      <div class="tp-grid">
+        ${s.types.map(t => `
+          <div class="tp-card" style="--c:${t.color}">
+            <div class="tp-icon">${t.icon}</div>
+            <div class="tp-name">${esc(t.name)}</div>
+            <div class="tp-label mono">${esc(t.label)}</div>
+            <div class="tp-desc">${esc(t.desc)}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function rQAGrid(s) {
+  return `
+    <div class="s-qa-grid">
+      <div class="qg-head">
+        <h1 class="qg-title">${esc(s.title)}</h1>
+        <p class="qg-sub">${esc(s.sub)}</p>
+      </div>
+      <div class="qg-chips">
+        ${s.items.map(i => `
+          <div class="qg-chip">
+            <div class="qg-icon">${i.icon}</div>
+            <div class="qg-q">${esc(i.q)}</div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+}
+
+function rQAOpen(s) {
+  return `
+    <div class="s-qa-open">
+      <div class="qo-mark">❓</div>
+      <h1 class="qo-title">${esc(s.title)}</h1>
+      <div class="qo-sub">${esc(s.sub)}</div>
+      <div class="qo-tip">${esc(s.tip)}</div>
+    </div>`;
+}
+
+function rClosing(s) {
+  return `
+    <div class="s-closing">
+      <div class="cl-heart">💙</div>
+      <h1 class="cl-title">${esc(s.title)}</h1>
+      <div class="cl-sub">${esc(s.sub)}</div>
+      <div class="cl-meta mono">${esc(s.meta)}</div>
+    </div>`;
+}
+
+const RENDERERS = {
+  cover:            rCover,
+  icebreak:         rIcebreak,
+  section:          rSection,
+  grid:             rGrid,
+  theory:           rTheory,
+  steps:            rSteps,
+  activity:         rActivity,
+  'closing-period': rClosingPeriod,
+  'triage-cards':   rTriage,
+  'types-grid':     rTypes,
+  'qa-grid':        rQAGrid,
+  'qa-open':        rQAOpen,
+  closing:          rClosing,
+};
+
 function render() {
-  const lesson = currentLesson();
-  const slide  = currentSlide();
+  const s = cur();
+  setAccent(s.color || '#0891B2');
 
-  // Accent color (global CSS var)
-  setAccent(lesson.color);
+  const slideEl = document.getElementById('slide');
+  slideEl.className = `slide slide-${s.type} period-${s.period}`;
 
-  // Slide card type classes
-  const card = document.getElementById('slideCard');
-  card.classList.remove('cover-slide', 'icebreak-slide');
-  if (slide.cover)    card.classList.add('cover-slide');
-  if (slide.icebreak) card.classList.add('icebreak-slide');
+  const fn = RENDERERS[s.type] || rTheory;
 
-  // Slide content — fade transition
-  card.classList.add('slide-changing');
+  // Fade transition
+  slideEl.classList.add('fading');
   setTimeout(() => {
-    document.getElementById('slideTitle').textContent  = slide.title;
-    document.getElementById('slideBody').textContent   = slide.body;
-    document.getElementById('slideKicker').textContent = slide.kicker || lesson.tag;
-    card.classList.remove('slide-changing');
-  }, 180);
+    slideEl.innerHTML = fn(s);
+    slideEl.classList.remove('fading');
+  }, 150);
+
+  // Top bar
+  const periodBtn1 = document.getElementById('p1Btn');
+  const periodBtn2 = document.getElementById('p2Btn');
+  if (periodBtn1) periodBtn1.className = 'period-pill' + (s.period === 1 ? ' active' : '');
+  if (periodBtn2) periodBtn2.className = 'period-pill' + (s.period === 2 ? ' active' : '');
+
+  // Counter
+  document.getElementById('slideCounter').textContent = `${T.idx + 1} / ${SLIDES.length}`;
 
   // Progress
-  document.getElementById('slideCount').textContent = `${T.slideIdx + 1} / ${lesson.slides.length}`;
-  const prog = document.getElementById('slideProgress');
-  prog.style.width      = ((T.slideIdx + 1) / lesson.slides.length * 100) + '%';
-  prog.style.background = lesson.color;
-
-  // Image / video
-  const wrap   = document.getElementById('slideImageWrap');
-  const img    = document.getElementById('slideImg');
-  const video  = document.getElementById('slideVideo');
-  const layout = document.getElementById('slideLayout');
-
-  img.style.display   = 'none';
-  video.style.display = 'none';
-  img.src   = '';
-  video.src = '';
-
-  if (slide.video) {
-    wrap.classList.add('has-image');
-    video.src           = slide.video;
-    video.style.display = 'block';
-    layout.className    = 'slide-layout';
-  } else if (slide.img) {
-    wrap.classList.add('has-image');
-    img.src           = slide.img;
-    img.style.display = 'block';
-    layout.className  = 'slide-layout';
-  } else {
-    wrap.classList.remove('has-image');
-    layout.className = 'slide-layout no-image';
-  }
-
-  // Meta bar
-  const tagEl = document.getElementById('lessonTag');
-  tagEl.textContent        = lesson.tag;
-  tagEl.style.background   = lesson.color + '14';
-  tagEl.style.color        = lesson.color;
-  tagEl.style.borderColor  = lesson.color + '60';
-  document.getElementById('lessonLabel').textContent = `${lesson.period}교시 · STEP ${lesson.step} — ${lesson.label}`;
-  document.getElementById('lessonTime').textContent  = `⏱ ${lesson.duration}분`;
-
-  // Period pills
-  document.getElementById('period1Ind').className = 'period-pill' + (lesson.period === 1 ? ' active' : '');
-  document.getElementById('period2Ind').className = 'period-pill' + (lesson.period === 2 ? ' active' : '');
+  const prog = document.getElementById('progBar');
+  prog.style.width = ((T.idx + 1) / SLIDES.length * 100) + '%';
 
   // Nav buttons
-  const isFirst = T.lessonIdx === 0 && T.slideIdx === 0;
-  const isLast  = T.lessonIdx === LESSON.length - 1 && T.slideIdx === currentLesson().slides.length - 1;
-  document.getElementById('prevBtn').disabled = isFirst;
-  document.getElementById('nextBtn').disabled = isLast;
-
-  // Header dots
-  document.querySelectorAll('.l-dot').forEach((el, i) => {
-    el.className = 'l-dot' + (i === T.lessonIdx ? ' active' : (i < T.lessonIdx ? ' done' : ''));
-  });
-
-  // Sidebar items
-  document.querySelectorAll('.lesson-item').forEach((el, i) => {
-    el.className = 'lesson-item' + (i === T.lessonIdx ? ' active' : '');
-    el.style.setProperty('--lesson-color', LESSON[i].color);
-  });
-
-  // QR url color
-  const urlEl = document.getElementById('studentUrl');
-  if (urlEl) {
-    urlEl.style.color       = lesson.color;
-    urlEl.style.background  = lesson.color + '12';
-    urlEl.style.borderColor = lesson.color + '30';
-  }
+  document.getElementById('prevBtn').disabled = T.idx === 0;
+  document.getElementById('nextBtn').disabled = T.idx === SLIDES.length - 1;
 }
 
-// ==================== QR ====================
-
-function initQR(url) {
-  const el = document.getElementById('qrcode');
-  if (!el) return;
-  el.innerHTML = '';
-  try {
-    new QRCode(el, {
-      text: url, width:180, height:180,
-      colorDark:'#0F172A', colorLight:'#FFFFFF',
-      correctLevel: QRCode.CorrectLevel.M,
-    });
-  } catch(e) {
-    el.textContent = url;
-  }
-}
-
-// ==================== KEYBOARD ====================
+// ═══════════════════════════════════════════════════════════
+//                   KEYBOARD
+// ═══════════════════════════════════════════════════════════
 
 document.addEventListener('keydown', e => {
-  if (e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') { e.preventDefault(); nextSlide(); }
-  if (e.key==='ArrowLeft' ||e.key==='ArrowUp')                 { e.preventDefault(); prevSlide(); }
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') { e.preventDefault(); next(); }
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                    { e.preventDefault(); prev(); }
+  if (e.key === 'Home')                                                 { goSlide(0); }
+  if (e.key === 'End')                                                  { goSlide(SLIDES.length - 1); }
 });
 
-// ==================== INIT ====================
+// ═══════════════════════════════════════════════════════════
+//                   INIT
+// ═══════════════════════════════════════════════════════════
 
 (function() {
-  const listEl = document.getElementById('lessonList');
-  if (listEl) {
-    listEl.innerHTML = LESSON.map((l,i) => `
-      <div class="lesson-item" onclick="goToLesson(${i})" style="--lesson-color:${l.color}">
-        <div class="lesson-item-step" style="color:${l.color}">${l.period}-${l.step}</div>
-        <div class="lesson-item-info">
-          <div class="lesson-item-label">${l.label}</div>
-          <div class="lesson-item-meta">
-            <span class="lesson-item-tag" style="color:${l.color};background:${l.color}18">${l.tag}</span>
-            <span class="lesson-item-dur">${l.duration}분</span>
-          </div>
-        </div>
-      </div>`).join('');
-  }
-  const url = window.location.origin + '/';
-  const urlEl = document.getElementById('studentUrl');
-  if (urlEl) urlEl.textContent = url;
-  initQR(url);
+  generateQR(window.location.origin + '/');
   render();
 })();
