@@ -478,8 +478,6 @@ function renderApt() {
           <div class="rank-score mono">${S.score}pt</div>
           <button class="btn btn-share" onclick="shareResult()">결과 공유하기 📤</button>
         </div>
-        <div class="qa-section-title">궁금했던 것들</div>
-        <div class="qa-list">${qaHtml}</div>
       </div>`);
   }
 
