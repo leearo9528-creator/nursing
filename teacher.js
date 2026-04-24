@@ -189,15 +189,6 @@ const SLIDES = [
     img:'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80'
   },
 
-  { type:'theory', period:2, tag:'드라마 클립', color:P2_COLOR,
-    title:'🎬 드라마로 보는 트리아지',
-    points:[
-      '실제 재난 현장에서 트리아지가 어떻게 이루어지는지 확인해봐요',
-    ],
-    video:'https://www.youtube.com/embed/K2zGb--VkbY',
-    note:'▶ 드라마 속 응급실 트리아지 장면'
-  },
-
   { type:'triage', period:2, color:P2_COLOR,
     title:'4색 분류 체계',
     cards:[
@@ -206,6 +197,15 @@ const SLIDES = [
       { color:'#16A34A', label:'GREEN',  sub:'비응급', desc:'경상. 순서를 기다려도 지장 없음.',      example:'가벼운 타박상, 단순 염좌' },
       { color:'#374151', label:'BLACK',  sub:'지연',   desc:'소생 불가능. 제한 자원 하 처치 불가.',  example:'심폐정지 + 소생 불가 징후' },
     ]
+  },
+
+  { type:'theory', period:2, tag:'드라마 클립', color:P2_COLOR,
+    title:'🎬 드라마로 보는 트리아지',
+    points:[
+      '실제 재난 현장에서 트리아지가 어떻게 이루어지는지 확인해봐요',
+    ],
+    video:'https://www.youtube.com/embed/K2zGb--VkbY',
+    note:'▶ 드라마 속 응급실 트리아지 장면'
   },
 
   { type:'activity', period:2, act:'tri', color:P2_COLOR,
