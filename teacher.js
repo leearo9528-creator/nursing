@@ -27,8 +27,8 @@ const SLIDES = [
     sub:'여러분이 생각한 이미지와 얼마나 비슷한가요?',
     cols:3,
     images:[
-      { src:'https://images.unsplash.com/photo-1584467735867-4297ae2ebaaf?auto=format&fit=crop&w=700&q=80', caption:'하얀 유니폼' },
-      { src:'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=700&q=80', caption:'청진기' },
+      { src:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=80', caption:'하얀 유니폼' },
+      { src:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80', caption:'청진기' },
       { src:'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=700&q=80', caption:'주사' },
       { src:'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=700&q=80', caption:'응급 상황' },
       { src:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80', caption:'환자 돌봄' },
