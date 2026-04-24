@@ -22,17 +22,21 @@ const SLIDES = [
     sub:'잠깐 떠올려 보세요. 옆 친구와 이야기해도 좋아요.'
   },
 
-  { type:'image-collage', period:1, color:'#D97706',
+  { type:'bubbles', period:1, color:'#D97706',
     title:'이런 이미지들, 떠오르지 않나요?',
     sub:'여러분이 생각한 이미지와 얼마나 비슷한가요?',
-    cols:3,
-    images:[
-      { src:'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=700&q=80', caption:'하얀 유니폼' },
-      { src:'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=80', caption:'청진기' },
-      { src:'https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=700&q=80', caption:'주사' },
-      { src:'https://images.unsplash.com/photo-1504439468489-c8920d796a29?auto=format&fit=crop&w=700&q=80', caption:'응급 상황' },
-      { src:'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80', caption:'환자 돌봄' },
-      { src:'https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=700&q=80', caption:'수술실' },
+    words:[
+      { text:'하얀 유니폼', size:'lg' },
+      { text:'청진기',      size:'xl' },
+      { text:'주사 💉',    size:'md' },
+      { text:'응급실 🚨',  size:'xl' },
+      { text:'야간 근무',   size:'sm' },
+      { text:'환자 돌봄 🤝', size:'lg' },
+      { text:'수술실',      size:'md' },
+      { text:'링거',        size:'sm' },
+      { text:'심전도 📈',  size:'lg' },
+      { text:'가운',        size:'sm' },
+      { text:'혈압계',      size:'md' },
     ]
   },
 
@@ -405,6 +409,21 @@ function rImageCollage(s) {
 `;
 }
 
+function rBubbles(s) {
+  const sizeMap = { sm:'bubble-sm', md:'bubble-md', lg:'bubble-lg', xl:'bubble-xl' };
+  return `
+    <div class="sc">
+      <div class="sc-title-center">
+        <h1 class="sc-h1">${esc(s.title)}</h1>
+        ${s.sub ? `<div class="sc-sub" style="margin:0.25rem auto 0">${esc(s.sub)}</div>` : ''}
+      </div>
+      <div class="bubble-cloud">
+        ${s.words.map(w => `<div class="bubble ${sizeMap[w.size] || 'bubble-md'}" style="--bc:var(--accent)">${w.text}</div>`).join('')}
+      </div>
+    </div>
+`;
+}
+
 function rGrid(s) {
   const subHtml = s.sub ? `<div class="sc-sub" style="margin:0.25rem auto 0;max-width:700px">${esc(s.sub)}</div>` : '';
   return `
@@ -586,6 +605,7 @@ const RENDERERS = {
   section:          rSection,
   question:         rQuestion,
   'image-collage':  rImageCollage,
+  bubbles:          rBubbles,
   grid:             rGrid,
   theory:           rTheory,
   steps:            rSteps,

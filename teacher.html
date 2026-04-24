@@ -487,16 +487,16 @@
 
     /* Icon card (6 workplaces, 5 types, 8 QA chips) */
     .ic-card { text-align: center; align-items: center; border-top: 4px solid var(--c, var(--accent)); }
-    .ic-icon { font-size: clamp(2.2rem, 3.5vw, 2.8rem); }
+    .ic-icon { font-size: clamp(2.8rem, 4.5vw, 3.8rem); }
     .ic-name {
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
       color: var(--c, var(--text));
       line-height: 1.2;
     }
     .ic-sub {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.8rem;
       color: var(--muted);
       letter-spacing: 0.12em;
     }
@@ -733,6 +733,33 @@
       font-weight: 700;
       letter-spacing: 0.02em;
     }
+
+    /* ══════════════════════════════════════════════════════════════
+       BUBBLES — 생각 버블 클라우드
+    ══════════════════════════════════════════════════════════════ */
+    .bubble-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 0.9rem;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex: 1;
+    }
+    .bubble {
+      background: #fff;
+      border: 3px solid var(--bc, #D97706);
+      border-radius: 999px;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1.2;
+      padding: 0.55em 1.2em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .bubble-sm { font-size: clamp(0.9rem, 1.4vw, 1.1rem); }
+    .bubble-md { font-size: clamp(1.1rem, 1.8vw, 1.4rem); }
+    .bubble-lg { font-size: clamp(1.3rem, 2.2vw, 1.8rem); }
+    .bubble-xl { font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 900; }
 
     /* ══════════════════════════════════════════════════════════════
        QA LIST — 클릭해서 답변 펼치기
