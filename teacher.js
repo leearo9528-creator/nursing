@@ -243,19 +243,37 @@ function toggleSidebar() {
 
 // ==================== RENDER ====================
 
+function setAccent(color) {
+  document.documentElement.style.setProperty('--accent', color);
+}
+
 function render() {
   const lesson = currentLesson();
   const slide  = currentSlide();
 
-  // Slide content
-  document.getElementById('slideTitle').textContent = slide.title;
-  document.getElementById('slideBody').textContent  = slide.body;
+  // Accent color (global CSS var)
+  setAccent(lesson.color);
+
+  // Slide content — fade transition
+  const card = document.getElementById('slideCard');
+  card.classList.add('slide-changing');
+  setTimeout(() => {
+    document.getElementById('slideTitle').textContent  = slide.title;
+    document.getElementById('slideBody').textContent   = slide.body;
+    document.getElementById('slideKicker').textContent = lesson.tag;
+    card.classList.remove('slide-changing');
+  }, 180);
+
+  // Progress
   document.getElementById('slideCount').textContent = `${T.slideIdx + 1} / ${lesson.slides.length}`;
+  const prog = document.getElementById('slideProgress');
+  prog.style.width      = ((T.slideIdx + 1) / lesson.slides.length * 100) + '%';
+  prog.style.background = lesson.color;
 
   // Image / video
-  const wrap  = document.getElementById('slideImageWrap');
-  const img   = document.getElementById('slideImg');
-  const video = document.getElementById('slideVideo');
+  const wrap   = document.getElementById('slideImageWrap');
+  const img    = document.getElementById('slideImg');
+  const video  = document.getElementById('slideVideo');
   const layout = document.getElementById('slideLayout');
 
   img.style.display   = 'none';
@@ -265,9 +283,9 @@ function render() {
 
   if (slide.video) {
     wrap.classList.add('has-image');
-    video.src         = slide.video;
+    video.src           = slide.video;
     video.style.display = 'block';
-    layout.className  = 'slide-layout';
+    layout.className    = 'slide-layout';
   } else if (slide.img) {
     wrap.classList.add('has-image');
     img.src           = slide.img;
@@ -275,26 +293,21 @@ function render() {
     layout.className  = 'slide-layout';
   } else {
     wrap.classList.remove('has-image');
-    layout.className  = 'slide-layout no-image';
+    layout.className = 'slide-layout no-image';
   }
 
   // Meta bar
   const tagEl = document.getElementById('lessonTag');
-  tagEl.textContent   = lesson.tag;
-  tagEl.style.background   = lesson.color + '18';
-  tagEl.style.color         = lesson.color;
-  tagEl.style.borderColor   = lesson.color + '55';
+  tagEl.textContent        = lesson.tag;
+  tagEl.style.background   = lesson.color + '14';
+  tagEl.style.color        = lesson.color;
+  tagEl.style.borderColor  = lesson.color + '60';
   document.getElementById('lessonLabel').textContent = `${lesson.period}교시 · STEP ${lesson.step} — ${lesson.label}`;
-  document.getElementById('lessonTime').textContent  = `${lesson.duration}분`;
+  document.getElementById('lessonTime').textContent  = `⏱ ${lesson.duration}분`;
 
-  // Progress bar
-  const prog = document.getElementById('slideProgress');
-  prog.style.width      = ((T.slideIdx + 1) / lesson.slides.length * 100) + '%';
-  prog.style.background = lesson.color;
-
-  // Period indicators
-  document.getElementById('period1Ind').className = 'period-ind' + (lesson.period === 1 ? ' active' : '');
-  document.getElementById('period2Ind').className = 'period-ind' + (lesson.period === 2 ? ' active' : '');
+  // Period pills
+  document.getElementById('period1Ind').className = 'period-pill' + (lesson.period === 1 ? ' active' : '');
+  document.getElementById('period2Ind').className = 'period-pill' + (lesson.period === 2 ? ' active' : '');
 
   // Nav buttons
   const isFirst = T.lessonIdx === 0 && T.slideIdx === 0;
@@ -302,9 +315,9 @@ function render() {
   document.getElementById('prevBtn').disabled = isFirst;
   document.getElementById('nextBtn').disabled = isLast;
 
-  // Dots
-  document.querySelectorAll('.lesson-dot').forEach((el, i) => {
-    el.className = 'lesson-dot' + (i === T.lessonIdx ? ' active' : (i < T.lessonIdx ? ' done' : ''));
+  // Header dots
+  document.querySelectorAll('.l-dot').forEach((el, i) => {
+    el.className = 'l-dot' + (i === T.lessonIdx ? ' active' : (i < T.lessonIdx ? ' done' : ''));
   });
 
   // Sidebar items
@@ -312,6 +325,14 @@ function render() {
     el.className = 'lesson-item' + (i === T.lessonIdx ? ' active' : '');
     el.style.setProperty('--lesson-color', LESSON[i].color);
   });
+
+  // QR url color
+  const urlEl = document.getElementById('studentUrl');
+  if (urlEl) {
+    urlEl.style.color       = lesson.color;
+    urlEl.style.background  = lesson.color + '12';
+    urlEl.style.borderColor = lesson.color + '30';
+  }
 }
 
 // ==================== QR ====================
@@ -345,9 +366,14 @@ document.addEventListener('keydown', e => {
   if (listEl) {
     listEl.innerHTML = LESSON.map((l,i) => `
       <div class="lesson-item" onclick="goToLesson(${i})" style="--lesson-color:${l.color}">
-        <div class="lesson-item-tag" style="color:${l.color}">${l.period}교시 S${l.step}</div>
-        <div class="lesson-item-label">${l.label}</div>
-        <div class="lesson-item-dur">${l.duration}분</div>
+        <div class="lesson-item-step" style="color:${l.color}">${l.period}-${l.step}</div>
+        <div class="lesson-item-info">
+          <div class="lesson-item-label">${l.label}</div>
+          <div class="lesson-item-meta">
+            <span class="lesson-item-tag" style="color:${l.color};background:${l.color}18">${l.tag}</span>
+            <span class="lesson-item-dur">${l.duration}분</span>
+          </div>
+        </div>
       </div>`).join('');
   }
   const url = window.location.origin + '/';
