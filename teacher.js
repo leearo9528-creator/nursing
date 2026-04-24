@@ -8,6 +8,18 @@ const LESSON = [
     label:"간호사의 다양한 근무지", tag:"이론", color:"#0891B2",
     slides:[
       {
+        cover: true,
+        title:"간호사의\n세계로",
+        kicker:"2025 간호사 진로 특강",
+        body:"1교시 · 간호사의 다양한 근무지와 되는 길",
+      },
+      {
+        icebreak: true,
+        title:"아이스브레이킹 ❄️",
+        kicker:"수업 시작 전",
+        body:"Q1. 지금 내 옆에 앉은 사람 이름을 30초 안에 외워보세요!\n\nQ2. '간호사' 하면 떠오르는 단어를 하나씩 외쳐보세요.\n\nQ3. 내 주변에 간호사가 있는 사람? 손 들어보세요 🙋",
+      },
+      {
         title:"간호사는 병원만이\n아닙니다",
         body:"오늘 배울 6가지 근무지를 소개합니다.\n응급실 · 중환자실 · 수술실 · 보건교사 · 소방 구급 · 항공 간호사",
         img:"https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80"
@@ -254,13 +266,18 @@ function render() {
   // Accent color (global CSS var)
   setAccent(lesson.color);
 
-  // Slide content — fade transition
+  // Slide card type classes
   const card = document.getElementById('slideCard');
+  card.classList.remove('cover-slide', 'icebreak-slide');
+  if (slide.cover)    card.classList.add('cover-slide');
+  if (slide.icebreak) card.classList.add('icebreak-slide');
+
+  // Slide content — fade transition
   card.classList.add('slide-changing');
   setTimeout(() => {
     document.getElementById('slideTitle').textContent  = slide.title;
     document.getElementById('slideBody').textContent   = slide.body;
-    document.getElementById('slideKicker').textContent = lesson.tag;
+    document.getElementById('slideKicker').textContent = slide.kicker || lesson.tag;
     card.classList.remove('slide-changing');
   }, 180);
 

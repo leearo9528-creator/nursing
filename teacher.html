@@ -560,6 +560,80 @@
     }
 
     /* ─────────────────────────────────────────
+       COVER SLIDE
+    ───────────────────────────────────────── */
+    .slide-card.cover-slide {
+      background: linear-gradient(135deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 70%, #0D1B2A) 100%);
+      box-shadow: 0 16px 56px color-mix(in srgb, var(--accent) 35%, transparent);
+    }
+    .slide-card.cover-slide::before { display: none; }
+
+    .slide-card.cover-slide .slide-layout {
+      align-items: center;
+      text-align: center;
+      padding: 3rem 5rem;
+    }
+    .slide-card.cover-slide .slide-text { align-items: center; padding-right: 0; }
+
+    .slide-card.cover-slide .slide-kicker {
+      color: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      margin-bottom: 1.25rem;
+    }
+    .slide-card.cover-slide #slideTitle {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      color: #fff;
+      line-height: 1.1;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.2);
+      margin-bottom: 1.25rem;
+    }
+    .slide-card.cover-slide #slideBody {
+      font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+      color: rgba(255,255,255,0.75);
+      font-weight: 500;
+    }
+
+    /* ─────────────────────────────────────────
+       ICEBREAK SLIDE
+    ───────────────────────────────────────── */
+    .slide-card.icebreak-slide {
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      border: 2px solid #FCD34D;
+      box-shadow: 0 12px 40px rgba(217,119,6,0.18);
+    }
+    .slide-card.icebreak-slide::before { background: #D97706; }
+
+    .slide-card.icebreak-slide .slide-layout {
+      align-items: flex-start;
+      padding: 2.5rem 3.5rem;
+    }
+    .slide-card.icebreak-slide .slide-text { padding-right: 0; }
+
+    .slide-card.icebreak-slide .slide-kicker {
+      color: #92400E;
+      font-size: 0.72rem;
+    }
+    .slide-card.icebreak-slide #slideTitle {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: #78350F;
+      margin-bottom: 1.5rem;
+    }
+    .slide-card.icebreak-slide #slideBody {
+      font-size: clamp(1.05rem, 1.7vw, 1.4rem);
+      color: #92400E;
+      line-height: 2.1;
+      background: rgba(255,255,255,0.6);
+      border-radius: 14px;
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(217,119,6,0.2);
+    }
+
+    /* ─────────────────────────────────────────
        TRANSITIONS
     ───────────────────────────────────────── */
     #slideTitle, #slideBody, .slide-kicker { transition: opacity .2s ease; }
