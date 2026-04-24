@@ -354,7 +354,7 @@ function rCover(s) {
       <h1 class="sc-h1">${esc(s.title)}</h1>
       <div class="sc-sub">${esc(s.sub)}</div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rSection(s) {
@@ -364,7 +364,7 @@ function rSection(s) {
       <h1 class="sc-h1">${esc(s.title)}</h1>
       <div class="sc-sub">${esc(s.sub)}</div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rQuestion(s) {
@@ -374,7 +374,7 @@ function rQuestion(s) {
       <h1 class="sc-h1">${esc(s.title)}</h1>
       <div class="sc-sub">${esc(s.sub)}</div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rImageCollage(s) {
@@ -393,7 +393,7 @@ function rImageCollage(s) {
           </div>`).join('')}
       </div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rGrid(s) {
@@ -414,7 +414,7 @@ function rGrid(s) {
           </div>`).join('')}
       </div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rTheory(s) {
@@ -443,7 +443,7 @@ function rTheory(s) {
         </div>
         ${mediaHtml}
       </div>
-      ${qrFloat()}`;
+  `;
   }
   return `
     <div class="sc">
@@ -452,7 +452,7 @@ function rTheory(s) {
       ${pts}
       ${note}
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rSteps(s) {
@@ -472,7 +472,7 @@ function rSteps(s) {
           </div>`).join('')}
       </div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rTriage(s) {
@@ -493,7 +493,7 @@ function rTriage(s) {
           </div>`).join('')}
       </div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rActivity(s) {
@@ -528,7 +528,7 @@ function rBreak(s) {
       <div style="font-size:var(--fs-body-lg);color:var(--text);line-height:1.8;white-space:pre-line;max-width:680px;margin-top:1.5rem;font-weight:500;">${esc(s.body)}</div>
       <div class="mono" style="font-size:var(--fs-sm);color:var(--muted);letter-spacing:0.2em;font-weight:700;margin-top:2rem;">${esc(s.meta)}</div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function rQA(s) {
@@ -549,7 +549,7 @@ function rQA(s) {
           </div>`).join('')}
       </div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 function toggleQA(i) {
@@ -565,7 +565,7 @@ function rClosing(s) {
       <div class="sc-sub">${esc(s.sub)}</div>
       <div class="mono" style="font-size:var(--fs-sm);color:rgba(255,255,255,0.75);letter-spacing:0.1em;font-weight:700;margin-top:2rem;">${esc(s.meta)}</div>
     </div>
-    ${qrFloat()}`;
+`;
 }
 
 const RENDERERS = {
