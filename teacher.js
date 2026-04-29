@@ -224,6 +224,26 @@ const SLIDES = [
     hint:'총 12 케이스 · 예상 소요 20분 · 이 수업에서 가장 어려운 파트!'
   },
 
+  { type:'quizAnswers', period:2, color:P2_COLOR,
+    title:'트리아지 정답 해설',
+    sub:'12개 케이스 — 헷갈렸던 분류 기준을 다시 짚어봅니다',
+    cases:[
+      { num:1,  color:'#E63946', label:'RED',    summary:'의식 없는 외상 + 심한 출혈',     why:'즉각 처치 없으면 사망' },
+      { num:2,  color:'#D97706', label:'YELLOW', summary:'의식 있음 + 다리 골절 의심',     why:'30분 내 처치 가능' },
+      { num:3,  color:'#16A34A', label:'GREEN',  summary:'긁힌 상처 + 활력징후 정상',      why:'대기 후 치료 가능' },
+      { num:4,  color:'#374151', label:'BLACK',  summary:'심폐정지 + 동공 고정 확대',      why:'소생 불가 — 자원 집중' },
+      { num:5,  color:'#E63946', label:'RED',    summary:'흉통 + 식은땀 + 좌측 팔 저림',   why:'심근경색 의심' },
+      { num:6,  color:'#16A34A', label:'GREEN',  summary:'가벼운 타박상 (아이) 정상',      why:'비응급 상태' },
+      { num:7,  color:'#E63946', label:'RED',    summary:'약물 과다 + 의식 저하 진행',     why:'즉시 개입 필요' },
+      { num:8,  color:'#374151', label:'BLACK',  summary:'시반(보랏빛 반점) 발생',         why:'사망 확인' },
+      { num:9,  color:'#D97706', label:'YELLOW', summary:'손목 골절 + 의식 정상',          why:'생명 위험은 없음' },
+      { num:10, color:'#E63946', label:'RED',    summary:'"인생 최악" 벼락 두통',          why:'지주막하출혈 신호' },
+      { num:11, color:'#16A34A', label:'GREEN',  summary:'발목 염좌 + 보행 가능',          why:'단순 염좌' },
+      { num:12, color:'#E63946', label:'RED',    summary:'소아 호흡곤란 + 청색증',         why:'즉각 처치 필요' },
+    ],
+    takeaway:'의식 · 호흡 · 출혈 — 이 세 가지가 색을 가르는 핵심 기준입니다.'
+  },
+
   { type:'section', period:2, color:'#7C3AED',
     num:'PART 04',
     title:'나의 간호사\n적성 유형은?',
@@ -528,6 +548,29 @@ function toggleTri(el) {
   el.classList.toggle('open');
 }
 
+function rQuizAnswers(s) {
+  return `
+    <div class="sc">
+      <div class="sc-title-center" style="margin-bottom:0.85rem;">
+        <h1 class="sc-h1" style="margin-bottom:0.3rem;">${esc(s.title)}</h1>
+        <div class="sc-sub" style="margin-bottom:0;">${esc(s.sub)}</div>
+      </div>
+      <div class="qz-grid">
+        ${s.cases.map(c => `
+          <div class="qz-card" style="--c:${c.color}">
+            <div class="qz-head">
+              <span class="qz-num mono">CASE ${c.num}</span>
+              <span class="qz-tag" style="background:${c.color}">${esc(c.label)}</span>
+            </div>
+            <div class="qz-summary">${esc(c.summary)}</div>
+            <div class="qz-why">→ ${esc(c.why)}</div>
+          </div>`).join('')}
+      </div>
+      ${s.takeaway ? `<div class="qz-takeaway">💡 ${esc(s.takeaway)}</div>` : ''}
+    </div>
+`;
+}
+
 function rActivity(s) {
   return `
     <div class="sc-act">
@@ -610,6 +653,7 @@ const RENDERERS = {
   theory:           rTheory,
   steps:            rSteps,
   triage:           rTriage,
+  quizAnswers:      rQuizAnswers,
   activity:         rActivity,
   break:            rBreak,
   qa:               rQA,

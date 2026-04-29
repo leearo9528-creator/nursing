@@ -841,6 +841,72 @@
       font-weight: 500;
     }
     .qa-item.open .qa-a-box { display: block; }
+
+    /* ══════════════════════════════════════════════════════════════
+       LAYOUT 5 · QUIZ ANSWERS — 트리아지 해설
+    ══════════════════════════════════════════════════════════════ */
+    .qz-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.65rem;
+      flex: 1;
+      min-height: 0;
+      overflow: hidden;
+    }
+    .qz-card {
+      background: var(--surf);
+      border: 1.5px solid var(--border);
+      border-top: 4px solid var(--c, var(--accent));
+      border-radius: var(--r-md);
+      padding: 0.7rem 0.85rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      box-shadow: var(--sh-s);
+      min-height: 0;
+    }
+    .qz-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+    .qz-num {
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+    .qz-tag {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.68rem;
+      color: #fff;
+      padding: 0.18rem 0.5rem;
+      border-radius: 6px;
+      letter-spacing: 0.08em;
+    }
+    .qz-summary {
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.35;
+    }
+    .qz-why {
+      font-size: 0.78rem;
+      color: var(--sub);
+      line-height: 1.4;
+      margin-top: auto;
+    }
+    .qz-takeaway {
+      margin-top: 0.85rem;
+      padding: 0.7rem 1rem;
+      background: color-mix(in srgb, var(--accent) 8%, white);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--r-sm);
+      font-size: var(--fs-body);
+      color: var(--accent);
+      font-weight: 700;
+    }
   </style>
 </head>
 <body>
