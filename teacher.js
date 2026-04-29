@@ -553,14 +553,15 @@ function rQuizAnswers(s) {
     <div class="sc">
       <div class="sc-title-center" style="margin-bottom:0.85rem;">
         <h1 class="sc-h1" style="margin-bottom:0.3rem;">${esc(s.title)}</h1>
-        <div class="sc-sub" style="margin-bottom:0;">${esc(s.sub)}</div>
+        <div class="sc-sub" style="margin-bottom:0;">${esc(s.sub)} · <span style="color:var(--accent);font-weight:700;">카드를 클릭하면 정답이 보입니다</span></div>
       </div>
       <div class="qz-grid">
         ${s.cases.map(c => `
-          <div class="qz-card" style="--c:${c.color}">
+          <div class="qz-card" style="--c:${c.color}" onclick="toggleQz(this)">
             <div class="qz-head">
               <span class="qz-num mono">CASE ${c.num}</span>
               <span class="qz-tag" style="background:${c.color}">${esc(c.label)}</span>
+              <span class="qz-hint mono">정답?</span>
             </div>
             <div class="qz-summary">${esc(c.summary)}</div>
             <div class="qz-why">→ ${esc(c.why)}</div>
@@ -569,6 +570,10 @@ function rQuizAnswers(s) {
       ${s.takeaway ? `<div class="qz-takeaway">💡 ${esc(s.takeaway)}</div>` : ''}
     </div>
 `;
+}
+
+function toggleQz(el) {
+  el.classList.toggle('open');
 }
 
 function rActivity(s) {

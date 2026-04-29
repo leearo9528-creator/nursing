@@ -856,7 +856,7 @@
     .qz-card {
       background: var(--surf);
       border: 1.5px solid var(--border);
-      border-top: 4px solid var(--c, var(--accent));
+      border-top: 4px solid var(--border);
       border-radius: var(--r-md);
       padding: 0.7rem 0.85rem 0.75rem;
       display: flex;
@@ -864,6 +864,14 @@
       gap: 0.35rem;
       box-shadow: var(--sh-s);
       min-height: 0;
+      cursor: pointer;
+      user-select: none;
+      transition: border-color .25s, box-shadow .25s, transform .15s;
+    }
+    .qz-card:hover { transform: translateY(-2px); box-shadow: var(--sh-m); }
+    .qz-card.open {
+      border-top-color: var(--c, var(--accent));
+      border-color: color-mix(in srgb, var(--c, var(--accent)) 35%, var(--border));
     }
     .qz-head {
       display: flex;
@@ -884,7 +892,19 @@
       padding: 0.18rem 0.5rem;
       border-radius: 6px;
       letter-spacing: 0.08em;
+      display: none;
     }
+    .qz-card.open .qz-tag { display: inline-block; }
+    .qz-hint {
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      padding: 0.18rem 0.5rem;
+      border: 1.5px dashed var(--border-2);
+      border-radius: 6px;
+    }
+    .qz-card.open .qz-hint { display: none; }
     .qz-summary {
       font-size: var(--fs-sm);
       font-weight: 700;
@@ -896,7 +916,9 @@
       color: var(--sub);
       line-height: 1.4;
       margin-top: auto;
+      display: none;
     }
+    .qz-card.open .qz-why { display: block; }
     .qz-takeaway {
       margin-top: 0.85rem;
       padding: 0.7rem 1rem;

@@ -201,10 +201,10 @@ function initState(name) {
     screen: 'ox',
     score: 0,
     oxPts: 0, sitPts: 0, triPts: 0,
-    ox:  { idx:0, answered:null, streak:0, done:false },
-    sit: { idx:0, answered:null, done:false },
-    tri: { idx:0, answered:null, done:false },
-    apt: { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0}, result:null, done:false },
+    ox:  { idx:0, answered:null, streak:0, done:false, history:[] },
+    sit: { idx:0, answered:null, done:false, history:[] },
+    tri: { idx:0, answered:null, done:false, history:[] },
+    apt: { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0}, result:null, done:false, history:[] },
     qa:  { open:{} },
   };
   saveState();
@@ -333,6 +333,7 @@ function renderOX() {
         <div class="result-title">OX 퀴즈 완료!</div>
         <div class="result-score mono">${S.oxPts}pt 획득</div>
         <p class="result-sub">총 ${OX_QUIZ.length}문제 중<br>정답을 맞춰서 얻은 점수입니다.</p>
+        <button class="btn btn-restart" onclick="oxRestart()">↻ 다시 풀어보기</button>
       </div>`);
   }
 
@@ -341,12 +342,16 @@ function renderOX() {
   let feedbackHtml = '';
   if (answered !== null) {
     const correct = answered === q.a;
+    const nextLabel = ox.idx < OX_QUIZ.length - 1 ? '다음 문제 →' : '결과 보기 →';
     feedbackHtml = `
       <div class="feedback ${correct ? 'feedback-correct' : 'feedback-wrong'}">
         <div class="feedback-icon">${correct ? '✅ 정답!' : '❌ 오답!'}</div>
         <div class="feedback-tip">${q.tip}</div>
         ${ox.streak >= 3 ? `<div class="bonus-badge">🔥 ${ox.streak}연속 정답! +5 보너스!</div>` : ''}
-        <button class="btn btn-coral btn-full" onclick="oxNext()">다음 문제 →</button>
+        <div class="nav-row">
+          ${ox.idx > 0 ? `<button class="btn btn-back" onclick="oxPrev()">← 이전</button>` : ''}
+          <button class="btn btn-coral btn-full" onclick="oxNext()">${nextLabel}</button>
+        </div>
       </div>`;
   }
 
@@ -361,7 +366,9 @@ function renderOX() {
         <div class="ox-buttons">
           <button class="ox-btn ox-o" onclick="oxAnswer(true)">O</button>
           <button class="ox-btn ox-x" onclick="oxAnswer(false)">X</button>
-        </div>` : feedbackHtml}
+        </div>
+        ${ox.idx > 0 ? `<button class="btn btn-back btn-full" onclick="oxPrev()">← 이전 문제</button>` : ''}
+      ` : feedbackHtml}
     </div>`);
 }
 
@@ -375,6 +382,7 @@ function renderSit() {
         <div class="result-title">상황극 완료!</div>
         <div class="result-score mono">${S.sitPts}pt 획득</div>
         <p class="result-sub">4가지 장면에서의<br>공감 선택 점수입니다.</p>
+        <button class="btn btn-restart" onclick="sitRestart()">↻ 다시 풀어보기</button>
       </div>`);
   }
 
@@ -384,15 +392,17 @@ function renderSit() {
   if (answered !== null) {
     const choice = sc.choices[answered];
     const bar = Math.round((choice.score / 5) * 100);
+    const nextLabel = sit.idx < SITUATIONS.length - 1 ? '다음 장면 →' : '결과 보기 →';
     feedbackHtml = `
       <div class="feedback feedback-sit">
         <div class="empathy-label">공감 점수</div>
         <div class="empathy-bar-wrap"><div class="empathy-bar" style="width:${bar}%"></div></div>
         <div class="empathy-score mono">+${choice.score * 2}pt</div>
         <div class="feedback-tip">${sc.bestTip}</div>
-        <button class="btn btn-coral btn-full" onclick="sitNext()">
-          ${sit.idx < SITUATIONS.length - 1 ? '다음 장면 →' : '결과 보기 →'}
-        </button>
+        <div class="nav-row">
+          ${sit.idx > 0 ? `<button class="btn btn-back" onclick="sitPrev()">← 이전</button>` : ''}
+          <button class="btn btn-coral btn-full" onclick="sitNext()">${nextLabel}</button>
+        </div>
       </div>`;
   }
 
@@ -408,7 +418,9 @@ function renderSit() {
         <div class="choices">
           ${sc.choices.map((c,i) => `
             <button class="choice-btn" onclick="sitAnswer(${i})">${esc(c.text)}</button>`).join('')}
-        </div>` : feedbackHtml}
+        </div>
+        ${sit.idx > 0 ? `<button class="btn btn-back btn-full" onclick="sitPrev()">← 이전 장면</button>` : ''}
+      ` : feedbackHtml}
     </div>`);
 }
 
@@ -422,6 +434,7 @@ function renderTri() {
         <div class="result-title">트리아지 완료!</div>
         <div class="result-score mono">${S.triPts}pt 획득</div>
         <p class="result-sub">12가지 시나리오 중<br>정확히 분류한 케이스 점수입니다.</p>
+        <button class="btn btn-restart" onclick="triRestart()">↻ 다시 풀어보기</button>
       </div>`);
   }
 
@@ -431,14 +444,16 @@ function renderTri() {
   if (answered !== null) {
     const correct = answered === sc.answer;
     const col = TRIAGE_COLORS[sc.answer];
+    const nextLabel = tri.idx < TRIAGE.length - 1 ? '다음 →' : '결과 보기 →';
     feedbackHtml = `
       <div class="feedback ${correct ? 'feedback-correct' : 'feedback-wrong'}">
         <div class="feedback-icon">${correct ? '✅ 정답!' : '❌ 오답!'}</div>
         <div class="triage-answer-tag" style="background:${col.bg}">${col.label} — ${col.desc}</div>
         <div class="feedback-tip">${sc.why}</div>
-        <button class="btn btn-coral btn-full" onclick="triNext()">
-          ${tri.idx < TRIAGE.length - 1 ? '다음 →' : '결과 보기 →'}
-        </button>
+        <div class="nav-row">
+          ${tri.idx > 0 ? `<button class="btn btn-back" onclick="triPrev()">← 이전</button>` : ''}
+          <button class="btn btn-coral btn-full" onclick="triNext()">${nextLabel}</button>
+        </div>
       </div>`;
   }
 
@@ -456,7 +471,9 @@ function renderTri() {
               <span class="triage-btn-label">${k}</span>
               <span class="triage-btn-sub">${v.desc}</span>
             </button>`).join('')}
-        </div>` : feedbackHtml}
+        </div>
+        ${tri.idx > 0 ? `<button class="btn btn-back btn-full" onclick="triPrev()">← 이전 케이스</button>` : ''}
+      ` : feedbackHtml}
     </div>`);
 }
 
@@ -487,6 +504,7 @@ function renderApt() {
             ${t.tips.map(tip => `<div class="apt-tip">✦ ${tip}</div>`).join('')}
           </div>
         </div>
+        <button class="btn btn-restart" onclick="aptRestart()">↻ 적성 테스트 다시 하기</button>
         <div class="final-rank-card" style="border-color:${rank.color}">
           <div class="rank-icon">${rank.icon}</div>
           <div class="rank-title mono" style="color:${rank.color}">${rank.title}</div>
@@ -499,6 +517,7 @@ function renderApt() {
   }
 
   const q = APTITUDE_Q[apt.idx];
+  const nextLabel = apt.idx < APTITUDE_Q.length - 1 ? '다음 →' : '결과 보기 →';
   return wrapMain(`
     <div class="screen-inner">
       <div class="quiz-header">
@@ -511,7 +530,12 @@ function renderApt() {
             ${esc(o.text)}
           </button>`).join('')}
       </div>
-      ${apt.answered !== null ? `<button class="btn btn-coral btn-full" onclick="aptNext()">다음 →</button>` : ''}
+      ${apt.answered !== null ? `
+        <div class="nav-row">
+          ${apt.idx > 0 ? `<button class="btn btn-back" onclick="aptPrev()">← 이전</button>` : ''}
+          <button class="btn btn-coral btn-full" onclick="aptNext()">${nextLabel}</button>
+        </div>
+      ` : (apt.idx > 0 ? `<button class="btn btn-back btn-full" onclick="aptPrev()">← 이전 문제</button>` : '')}
     </div>`);
 }
 
@@ -554,6 +578,8 @@ function oxAnswer(val) {
   const q = OX_QUIZ[S.ox.idx];
   const correct = val === q.a;
   S.ox.answered = val;
+  S.ox.history = S.ox.history || [];
+  S.ox.history[S.ox.idx] = val;
   if (correct) {
     S.ox.streak++;
     let pts = 10;
@@ -566,8 +592,26 @@ function oxAnswer(val) {
 }
 function oxNext() {
   S.ox.idx++;
-  S.ox.answered = null;
-  if (S.ox.idx >= OX_QUIZ.length) S.ox.done = true;
+  if (S.ox.idx >= OX_QUIZ.length) {
+    S.ox.done = true;
+    S.ox.answered = null;
+  } else {
+    const h = S.ox.history;
+    S.ox.answered = (h && h[S.ox.idx] !== undefined && h[S.ox.idx] !== null) ? h[S.ox.idx] : null;
+  }
+  saveState(); render();
+}
+function oxPrev() {
+  if (S.ox.idx <= 0) return;
+  S.ox.idx--;
+  const h = S.ox.history;
+  S.ox.answered = (h && h[S.ox.idx] !== undefined && h[S.ox.idx] !== null) ? h[S.ox.idx] : null;
+  saveState(); render();
+}
+function oxRestart() {
+  S.score -= S.oxPts;
+  S.oxPts = 0;
+  S.ox = { idx:0, answered:null, streak:0, done:false, history:[] };
   saveState(); render();
 }
 
@@ -575,14 +619,34 @@ function sitAnswer(i) {
   if (S.sit.answered !== null) return;
   const sc = SITUATIONS[S.sit.idx];
   S.sit.answered = i;
+  S.sit.history = S.sit.history || [];
+  S.sit.history[S.sit.idx] = i;
   const pts = sc.choices[i].score * 2;
   S.score += pts; S.sitPts += pts;
   saveState(); render();
 }
 function sitNext() {
   S.sit.idx++;
-  S.sit.answered = null;
-  if (S.sit.idx >= SITUATIONS.length) S.sit.done = true;
+  if (S.sit.idx >= SITUATIONS.length) {
+    S.sit.done = true;
+    S.sit.answered = null;
+  } else {
+    const h = S.sit.history;
+    S.sit.answered = (h && h[S.sit.idx] !== undefined && h[S.sit.idx] !== null) ? h[S.sit.idx] : null;
+  }
+  saveState(); render();
+}
+function sitPrev() {
+  if (S.sit.idx <= 0) return;
+  S.sit.idx--;
+  const h = S.sit.history;
+  S.sit.answered = (h && h[S.sit.idx] !== undefined && h[S.sit.idx] !== null) ? h[S.sit.idx] : null;
+  saveState(); render();
+}
+function sitRestart() {
+  S.score -= S.sitPts;
+  S.sitPts = 0;
+  S.sit = { idx:0, answered:null, done:false, history:[] };
   saveState(); render();
 }
 
@@ -590,13 +654,33 @@ function triAnswer(val) {
   if (S.tri.answered !== null) return;
   const sc = TRIAGE[S.tri.idx];
   S.tri.answered = val;
+  S.tri.history = S.tri.history || [];
+  S.tri.history[S.tri.idx] = val;
   if (val === sc.answer) { S.score += 15; S.triPts += 15; }
   saveState(); render();
 }
 function triNext() {
   S.tri.idx++;
-  S.tri.answered = null;
-  if (S.tri.idx >= TRIAGE.length) S.tri.done = true;
+  if (S.tri.idx >= TRIAGE.length) {
+    S.tri.done = true;
+    S.tri.answered = null;
+  } else {
+    const h = S.tri.history;
+    S.tri.answered = (h && h[S.tri.idx] !== undefined && h[S.tri.idx] !== null) ? h[S.tri.idx] : null;
+  }
+  saveState(); render();
+}
+function triPrev() {
+  if (S.tri.idx <= 0) return;
+  S.tri.idx--;
+  const h = S.tri.history;
+  S.tri.answered = (h && h[S.tri.idx] !== undefined && h[S.tri.idx] !== null) ? h[S.tri.idx] : null;
+  saveState(); render();
+}
+function triRestart() {
+  S.score -= S.triPts;
+  S.triPts = 0;
+  S.tri = { idx:0, answered:null, done:false, history:[] };
   saveState(); render();
 }
 
@@ -605,14 +689,35 @@ function aptNext() {
   if (S.apt.answered === null) return;
   const q = APTITUDE_Q[S.apt.idx];
   S.apt.scores[q.opts[S.apt.answered].type]++;
+  S.apt.history = S.apt.history || [];
+  S.apt.history[S.apt.idx] = S.apt.answered;
   S.apt.idx++;
-  S.apt.answered = null;
   if (S.apt.idx >= APTITUDE_Q.length) {
     let best = null, bestVal = -1;
     for (const [k,v] of Object.entries(S.apt.scores)) { if (v > bestVal) { bestVal = v; best = k; } }
     S.apt.result = best;
     S.apt.done = true;
+    S.apt.answered = null;
+  } else {
+    const h = S.apt.history;
+    S.apt.answered = (h && h[S.apt.idx] !== undefined && h[S.apt.idx] !== null) ? h[S.apt.idx] : null;
   }
+  saveState(); render();
+}
+function aptPrev() {
+  if (S.apt.idx <= 0) return;
+  S.apt.idx--;
+  const h = S.apt.history || [];
+  if (h[S.apt.idx] !== undefined && h[S.apt.idx] !== null) {
+    const q = APTITUDE_Q[S.apt.idx];
+    const type = q.opts[h[S.apt.idx]].type;
+    if (S.apt.scores[type] > 0) S.apt.scores[type]--;
+  }
+  S.apt.answered = (h[S.apt.idx] !== undefined && h[S.apt.idx] !== null) ? h[S.apt.idx] : null;
+  saveState(); render();
+}
+function aptRestart() {
+  S.apt = { idx:0, answered:null, scores:{ER:0,ICU:0,OR:0,COMMUNITY:0}, result:null, done:false, history:[] };
   saveState(); render();
 }
 
