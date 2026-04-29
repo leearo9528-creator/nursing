@@ -564,27 +564,31 @@
 
     /* Numbered step (5 steps) */
     .st-card {
-      display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 1.5rem;
       border-left: 4px solid var(--accent);
       background: var(--surf2);
       border-top: none;
+      flex-shrink: 1;
+      min-height: 0;
     }
     .st-num {
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-size: clamp(1.6rem, 2.6vw, 2.1rem);
       color: var(--accent);
-      min-width: 60px;
+      min-width: 56px;
       line-height: 1;
+      flex-shrink: 0;
+      text-align: center;
     }
-    .st-body { flex: 1; }
-    .st-h { font-size: var(--fs-h2); font-weight: 700; margin-bottom: 0.2rem; color: var(--text); }
-    .st-p { font-size: var(--fs-sm); color: var(--sub); line-height: 1.5; }
+    .st-body { flex: 1; min-width: 0; }
+    .st-h { font-size: var(--fs-h2); font-weight: 700; margin-bottom: 0.15rem; color: var(--text); line-height: 1.25; }
+    .st-p { font-size: var(--fs-sm); color: var(--sub); line-height: 1.45; }
 
     /* Icebreak numbered card */
     .ib-card {
-      display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 1.5rem;
       background: var(--surf2);

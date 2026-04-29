@@ -486,12 +486,12 @@ function rTheory(s) {
 function rSteps(s) {
   return `
     <div class="sc">
-      <div class="sc-title-center" style="margin-bottom:1rem;">
+      <div class="sc-title-center" style="margin-bottom:0.85rem;">
         <h1 class="sc-h1" style="margin-bottom:0;">${esc(s.title)}</h1>
       </div>
-      <div style="display:flex;flex-direction:column;gap:0.6rem;flex:1;min-height:0;padding-right:130px;">
+      <div style="display:flex;flex-direction:column;gap:0.55rem;flex:1;min-height:0;padding-right:130px;overflow:hidden;">
         ${s.steps.map(st => `
-          <div class="sc-card st-card" style="padding:0.85rem 1.2rem;">
+          <div class="sc-card st-card" style="padding:0.7rem 1.1rem;">
             <div class="st-num">${esc(st.num)}</div>
             <div class="st-body">
               <div class="st-h">${esc(st.title)}</div>
